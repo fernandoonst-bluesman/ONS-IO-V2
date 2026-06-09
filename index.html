@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     
     <!-- PWA Meta Tags -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/ONS-IO-V2/manifest.json">
     <meta name="theme-color" content="#0a246a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1948,11 +1948,19 @@ laudoAtualizarDash();
 togglePixCampo();
 
 // Registrar Service Worker
-if ('serviceWorker' in navigator) {
+
+  if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(reg => console.log('Service Worker registrado:', reg)).catch(err => console.log('Erro SW:', err));
+      navigator.serviceWorker.register('/ONS-IO-V2/sw.js')
+        .then(registration => {
+          console.log('Service Worker registrado com sucesso:', registration);
+        })
+        .catch(error => {
+          console.log('Falha ao registrar Service Worker:', error);
+        });
     });
-}
+  }
+
 </script>
 </body>
 </html>
