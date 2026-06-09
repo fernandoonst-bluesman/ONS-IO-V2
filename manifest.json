@@ -1,0 +1,77 @@
+{
+  "name": "ONS OdontoTécnica",
+  "short_name": "ONS Odonto",
+  "description": "Sistema de Gestão Técnica para Manutenção de Equipamentos Odontológicos",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0a246a",
+  "background_color": "#0a246a",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "pt-BR",
+  "categories": ["business", "productivity", "health"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova OS",
+      "short_name": "OS",
+      "description": "Criar nova Ordem de Serviço",
+      "url": "/?action=new-os",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "short_name": "Clientes",
+      "description": "Gerenciar clientes",
+      "url": "/?action=clientes",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Orçamento",
+      "short_name": "Orçamento",
+      "description": "Criar novo orçamento",
+      "url": "/?action=orcamento",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Visualizar dashboard",
+      "url": "/?action=dashboard",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
