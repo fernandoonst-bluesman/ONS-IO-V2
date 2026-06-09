@@ -11,6 +11,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="ONS Odonto">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    
+    <!-- Ícones -->
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png">
@@ -469,53 +472,7 @@ table.tabela { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
 .pgto-opcoes { display: flex; gap: 12px; flex-wrap: wrap; margin: 10px 0; }
 .pgto-opcoes label { display: flex; align-items: center; gap: 5px; font-size: 0.74rem; font-weight: 500; cursor: pointer; }
 
-@media (max-width: 600px) {
-    body { padding: 0; }
-    .app-shell { border-radius: 0; min-height: 100vh; }
-    .topbar { padding: 0 12px; min-height: 52px; }
-    .brand-text strong { font-size: 0.95rem; }
-    .topbar-phone { display: none; }
-    .app-content { padding: 12px; }
-    .cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .card h3 { font-size: 1.5rem; }
-    .nav-btn { padding: 10px 10px; font-size: 0.65rem; }
-    .btn { padding: 8px 12px; font-size: 0.7rem; }
-}
-
-@media print {
-    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-    body, .app-shell, .topbar, .navbar, .app-content { all: unset !important; display: block !important; }
-    body { background: white !important; }
-    .topbar, .navbar, .btn-row, .btn-acoes-imp, .notify, .modal-overlay, #dados-faturamento .preview-area,
-    #orcPreviewOrcamento .btn-row, .lista-item-actions, .nav-btn { display: none !important; }
-    #documento-impressao { display: block !important; }
-    .doc-print { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; max-width: 210mm; margin: 0 auto; padding: 0; color: #1a202c; font-size: 11pt; line-height: 1.5; }
-    .doc-print-header { background: #0a246a !important; color: white !important; padding: 20px 28px 16px; display: flex; justify-content: space-between; align-items: flex-start; }
-    .doc-print-header h1 { font-family: 'Barlow Condensed', 'Inter', Arial, sans-serif; font-size: 22pt; font-weight: 700; letter-spacing: 1px; color: white !important; }
-    .doc-print-header .sub { font-size: 8pt; opacity: 0.8; margin-top: 2px; color: white !important; }
-    .doc-print-header .right { text-align: right; font-size: 8pt; color: rgba(255,255,255,0.9) !important; }
-    .doc-print-faixa { background: #f0b429 !important; color: #0a246a !important; padding: 8px 28px; font-weight: 700; font-size: 12pt; letter-spacing: 2px; text-transform: uppercase; }
-    .doc-print-body { padding: 20px 28px; }
-    .doc-print-section { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1.5px solid #e2e8f0; }
-    .doc-print-section h3 { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0a246a !important; margin-bottom: 8px; padding-left: 8px; border-left: 3px solid #2d5be3; }
-    .doc-print-section p { font-size: 10pt; color: #2d3748 !important; margin: 3px 0; }
-    .doc-print-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
-    .doc-print-table th { background: #0a246a !important; color: white !important; padding: 7px 10px; text-align: left; font-size: 8pt; font-weight: 700; text-transform: uppercase; }
-    .doc-print-table td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; color: #2d3748 !important; }
-    .doc-print-table tr:nth-child(even) td { background: #f8fafc !important; }
-    .doc-print-totais { background: #0a246a !important; color: white !important; padding: 14px 20px; border-radius: 8px; margin: 12px 0; display: flex; justify-content: flex-end; gap: 32px; align-items: center; }
-    .doc-print-totais .sub { font-size: 8pt; opacity: 0.75; }
-    .doc-print-totais .total { font-size: 16pt; font-weight: 800; }
-    .doc-print-totais .ouro { color: #f0b429 !important; }
-    .doc-print-pagamento { background: #e8eeff !important; border: 1.5px solid #0a246a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
-    .doc-print-pagamento h3 { color: #0a246a !important; font-size: 8pt; margin-bottom: 6px; }
-    .doc-print-pagamento p { color: #2d3748 !important; font-size: 10pt; }
-    .doc-print-assinatura { margin-top: 32px; display: flex; justify-content: space-around; text-align: center; font-size: 9pt; color: #4a5568 !important; }
-    .doc-print-assinatura .linha { border-top: 1.5px solid #0a246a; padding-top: 6px; width: 160px; }
-    .doc-print-footer { background: #0a246a !important; color: rgba(255,255,255,0.7) !important; padding: 10px 28px; text-align: center; font-size: 7.5pt; margin-top: 20px; }
-}
-#documento-impressao { display: none; }
-
+/* ===== ESTILOS DOS LAUDOS ===== */
 .checklist-container {
     background: #f8fafd;
     border: 1.5px solid var(--cinza-borda);
@@ -585,8 +542,49 @@ table.tabela { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
 .badge-reprovado { background: #fee2e2; color: #991b1b; }
 .badge-pendente { background: #f1f5f9; color: #64748b; }
 
+/* ===== MEDIA QUERY PARA MOBILE ===== */
 @media (max-width: 600px) {
+    body { padding: 0; }
+    .app-shell { border-radius: 0; min-height: 100vh; }
+    .topbar { padding: 0 12px; min-height: 52px; }
+    .brand-text strong { font-size: 0.95rem; }
+    .topbar-phone { display: none; }
+    .app-content { padding: 12px; }
+    .cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card h3 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 10px; font-size: 0.65rem; }
+    .btn { padding: 8px 12px; font-size: 0.7rem; }
     .checklist-duas-colunas { flex-direction: column; }
+}
+
+/* ===== PWA - TELA CHEIA ===== */
+@media all and (display-mode: standalone) {
+    body {
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 100vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .app-shell {
+        border-radius: 0 !important;
+        min-height: 100vh !important;
+    }
+    
+    .topbar {
+        border-radius: 0 !important;
+    }
+}
+
+/* Para iOS - áreas seguras */
+body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Garantir fundo correto */
+.app-shell {
+    background: var(--cinza-bg);
+    min-height: 100vh;
 }
 </style>
 </head>
@@ -1199,18 +1197,10 @@ const SUPABASE_URL = 'https://vckyxwonbpkdeqeoswxc.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZja3l4d29uYnBrZGVxZW9zd3hjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMTY5NjMsImV4cCI6MjA5MTU5Mjk2M30.b5ni_vnIETHVuOs5Cy4982UUBq9Icm-Zc12W1FwQyvI';
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Variáveis globais
-let clientes = [];
-let manutencoes = [];
-let osClientes = [];
-let faturas = [];
+let clientes = [], manutencoes = [], osClientes = [], faturas = [];
 let equipamentosLista = ['Cadeira Odontológica','Compressor','Autoclave','Raio-X','Caneta Alta Rotação','Ultrassom','Fotopolimerizadora','Motor Elétrico','Bomba de Vácuo'];
-let pecasUtilizadas = [];
-let osSelecionadaFatura = null;
-let clienteSelecionadoId = null;
-let orcListaPecas = [];
-let orcCurrentServiceType = "manutencao";
-let orcUltimoOrcamentoHtml = '';
+let pecasUtilizadas = [], osSelecionadaFatura = null, clienteSelecionadoId = null;
+let orcListaPecas = [], orcCurrentServiceType = "manutencao", orcUltimoOrcamentoHtml = '';
 
 // Laudos
 const laudoChecklistsPadrao = {
@@ -1435,15 +1425,7 @@ window.salvarCliente = function() {
     const nome = document.getElementById('cliente-nome').value.trim();
     const tel = document.getElementById('cliente-telefone').value.trim();
     if (!nome || !tel) { mostrarNotificacao('Nome e telefone obrigatórios!','erro'); return; }
-    const nc = { 
-        id: Date.now(), 
-        nome, 
-        telefone: tel, 
-        email: document.getElementById('cliente-email').value, 
-        endereco: document.getElementById('cliente-endereco').value, 
-        data: new Date().toISOString(), 
-        equipamentos: [] 
-    };
+    const nc = { id: Date.now(), nome, telefone: tel, email: document.getElementById('cliente-email').value, endereco: document.getElementById('cliente-endereco').value, data: new Date().toISOString(), equipamentos: [] };
     clientes.push(nc);
     salvarClientes();
     mostrarNotificacao('Cliente salvo!');
@@ -1457,10 +1439,7 @@ window.salvarCliente = function() {
 };
 
 window.limparFormCliente = function() {
-    ['cliente-nome','cliente-telefone','cliente-email','cliente-endereco'].forEach(id => {
-        const e = document.getElementById(id);
-        if (e) e.value = '';
-    });
+    ['cliente-nome','cliente-telefone','cliente-email','cliente-endereco'].forEach(id => { const e = document.getElementById(id); if (e) e.value = ''; });
     document.getElementById('secao-equipamentos-cliente').style.display = 'none';
     clienteSelecionadoId = null;
 };
@@ -1499,10 +1478,7 @@ window.excluirCliente = function(id) {
     carregarListaClientes();
     carregarSelects();
     atualizarDashboard();
-    if (clienteSelecionadoId === id) {
-        document.getElementById('secao-equipamentos-cliente').style.display = 'none';
-        clienteSelecionadoId = null;
-    }
+    if (clienteSelecionadoId === id) { document.getElementById('secao-equipamentos-cliente').style.display = 'none'; clienteSelecionadoId = null; }
     mostrarNotificacao('Cliente excluído!');
 };
 
@@ -1547,10 +1523,7 @@ window.adicionarEquipamentoCliente = function() {
     if (!cl.equipamentos) cl.equipamentos = [];
     cl.equipamentos.push({ nome: nm, fabricante: fab, modelo: mod, numeroSerie: ser, voltagem: vol, data: new Date().toISOString() });
     salvarClientes();
-    ['equip-pre-carregado','equip-fabricante','equip-modelo','equip-numero-serie','equip-voltagem'].forEach(id => {
-        const e = document.getElementById(id);
-        if (e) e.value = '';
-    });
+    ['equip-pre-carregado','equip-fabricante','equip-modelo','equip-numero-serie','equip-voltagem'].forEach(id => { const e = document.getElementById(id); if (e) e.value = ''; });
     atualizarListaEquipamentosCliente();
     carregarListaClientes();
     mostrarNotificacao('Equipamento adicionado!');
@@ -1558,25 +1531,14 @@ window.adicionarEquipamentoCliente = function() {
 
 window.removerEquipamentoCliente = function(idx) {
     const cl = clientes.find(c => c.id === clienteSelecionadoId);
-    if (cl && cl.equipamentos) {
-        cl.equipamentos.splice(idx, 1);
-        salvarClientes();
-        atualizarListaEquipamentosCliente();
-        carregarListaClientes();
-        mostrarNotificacao('Equipamento removido!');
-    }
+    if (cl && cl.equipamentos) { cl.equipamentos.splice(idx, 1); salvarClientes(); atualizarListaEquipamentosCliente(); carregarListaClientes(); mostrarNotificacao('Equipamento removido!'); }
 };
 
 // ==================== EQUIPAMENTOS ====================
 function mostrarEquipamentos() {
     const c = document.getElementById('lista-equipamentos-pre');
     if (!c) return;
-    c.innerHTML = equipamentosLista.map(eq => `
-        <div class="card" style="cursor:pointer; text-align:center;" onclick="selecionarEquipamentoRapido('${eq}')">
-            <div class="card-icon" style="margin:0 auto 8px;"><i class="fas fa-microscope"></i></div>
-            <p style="font-size:0.75rem; font-weight:600; color:var(--azul);">${eq}</p>
-        </div>
-    `).join('');
+    c.innerHTML = equipamentosLista.map(eq => `<div class="card" style="cursor:pointer; text-align:center;" onclick="selecionarEquipamentoRapido('${eq}')"><div class="card-icon" style="margin:0 auto 8px;"><i class="fas fa-microscope"></i></div><p style="font-size:0.75rem; font-weight:600; color:var(--azul);">${eq}</p></div>`).join('');
 }
 
 function selecionarEquipamentoRapido(eq) {
@@ -1586,12 +1548,8 @@ function selecionarEquipamentoRapido(eq) {
 
 window.usarEquipamentoManual = function() {
     const eq = document.getElementById('equip-manual').value.trim();
-    if (eq) {
-        document.getElementById('os-equipamento').value = eq;
-        document.querySelector('[data-tela="novaos"]').click();
-    } else {
-        mostrarNotificacao('Digite um equipamento!','erro');
-    }
+    if (eq) { document.getElementById('os-equipamento').value = eq; document.querySelector('[data-tela="novaos"]').click(); }
+    else mostrarNotificacao('Digite um equipamento!','erro');
 };
 
 // ==================== ORÇAMENTO — CLIENTE INTEGRADO ====================
@@ -1607,13 +1565,9 @@ function orcPreencherCliente() {
     if (se) {
         se.innerHTML = '<option value="">— Selecione um equipamento cadastrado —</option>';
         if (cl.equipamentos && cl.equipamentos.length > 0) {
-            cl.equipamentos.forEach((eq, i) => {
-                se.innerHTML += `<option value="${i}">${eq.nome}${eq.modelo ? ' — ' + eq.modelo : ''}${eq.numeroSerie ? ' (Série: ' + eq.numeroSerie + ')' : ''}</option>`;
-            });
+            cl.equipamentos.forEach((eq, i) => { se.innerHTML += `<option value="${i}">${eq.nome}${eq.modelo ? ' — ' + eq.modelo : ''}${eq.numeroSerie ? ' (Série: ' + eq.numeroSerie + ')' : ''}</option>`; });
             if (grp) grp.style.display = 'block';
-        } else {
-            if (grp) grp.style.display = 'none';
-        }
+        } else { if (grp) grp.style.display = 'none'; }
     }
     mostrarNotificacao(`Cliente ${cl.nome} carregado!`, 'info');
 }
@@ -1626,20 +1580,13 @@ function orcPreencherEquipamentoDinamico() {
     if (!cl?.equipamentos?.[idx]) return;
     const eq = cl.equipamentos[idx];
     setTimeout(() => {
-        const fe = document.getElementById('orcManutEquipamento');
-        if (fe) fe.value = eq.nome;
-        const fm = document.getElementById('orcManutModelo');
-        if (fm) fm.value = eq.modelo || '';
-        const fs = document.getElementById('orcManutSerie');
-        if (fs) fs.value = eq.numeroSerie || '';
-        const fab = document.getElementById('orcInstalEquipamento');
-        if (fab) fab.value = eq.nome;
-        const fam = document.getElementById('orcInstalModelo');
-        if (fam) fam.value = eq.modelo || '';
-        const fas = document.getElementById('orcInstalSerie');
-        if (fas) fas.value = eq.numeroSerie || '';
-        const faf = document.getElementById('orcInstalFabricante');
-        if (faf) faf.value = eq.fabricante || '';
+        const fe = document.getElementById('orcManutEquipamento'); if (fe) fe.value = eq.nome;
+        const fm = document.getElementById('orcManutModelo'); if (fm) fm.value = eq.modelo || '';
+        const fs = document.getElementById('orcManutSerie'); if (fs) fs.value = eq.numeroSerie || '';
+        const fab = document.getElementById('orcInstalEquipamento'); if (fab) fab.value = eq.nome;
+        const fam = document.getElementById('orcInstalModelo'); if (fam) fam.value = eq.modelo || '';
+        const fas = document.getElementById('orcInstalSerie'); if (fas) fas.value = eq.numeroSerie || '';
+        const faf = document.getElementById('orcInstalFabricante'); if (faf) faf.value = eq.fabricante || '';
     }, 100);
     mostrarNotificacao(`Equipamento ${eq.nome} carregado!`, 'info');
 }
@@ -1647,23 +1594,11 @@ function orcPreencherEquipamentoDinamico() {
 // ==================== NOVA OS ====================
 function carregarSelects() {
     const sc = document.getElementById('os-cliente');
-    if (sc) {
-        sc.innerHTML = '<option value="">Selecione um cliente</option>';
-        clientes.forEach(c => sc.innerHTML += `<option value="${c.id}">${c.nome}</option>`);
-    }
+    if (sc) { sc.innerHTML = '<option value="">Selecione um cliente</option>'; clientes.forEach(c => sc.innerHTML += `<option value="${c.id}">${c.nome}</option>`); }
     const sf = document.getElementById('faturamento-os-select');
-    if (sf) {
-        sf.innerHTML = '<option value="">Selecione uma OS</option>';
-        manutencoes.forEach(os => {
-            const cl = clientes.find(c => c.id === os.clienteId);
-            sf.innerHTML += `<option value="${os.id}">${cl?.nome || 'N/A'} - ${os.equipamento} (${new Date(os.data).toLocaleDateString()})</option>`;
-        });
-    }
+    if (sf) { sf.innerHTML = '<option value="">Selecione uma OS</option>'; manutencoes.forEach(os => { const cl = clientes.find(c => c.id === os.clienteId); sf.innerHTML += `<option value="${os.id}">${cl?.nome || 'N/A'} - ${os.equipamento} (${new Date(os.data).toLocaleDateString()})</option>`; }); }
     const sorc = document.getElementById('orc-select-cliente');
-    if (sorc) {
-        sorc.innerHTML = '<option value="">— Selecione um cliente cadastrado ou preencha manualmente —</option>';
-        clientes.forEach(c => sorc.innerHTML += `<option value="${c.id}">${c.nome} — ${c.telefone}</option>`);
-    }
+    if (sorc) { sorc.innerHTML = '<option value="">— Selecione um cliente cadastrado ou preencha manualmente —</option>'; clientes.forEach(c => sorc.innerHTML += `<option value="${c.id}">${c.nome} — ${c.telefone}</option>`); }
     laudoPopularSelectCliente();
 }
 
@@ -1676,24 +1611,10 @@ document.getElementById('os-cliente')?.addEventListener('change', function() {
         se.style.display = 'block';
         ie.style.display = 'none';
         se.innerHTML = '<option value="">Selecione um equipamento cadastrado</option>';
-        cl.equipamentos.forEach(eq => {
-            se.innerHTML += `<option value="${eq.nome}">${eq.nome}${eq.numeroSerie ? ` (Série: ${eq.numeroSerie})` : ''}</option>`;
-        });
+        cl.equipamentos.forEach(eq => { se.innerHTML += `<option value="${eq.nome}">${eq.nome}${eq.numeroSerie ? ` (Série: ${eq.numeroSerie})` : ''}</option>`; });
         se.innerHTML += '<option value="outro">Outro equipamento (digitar)</option>';
-        se.onchange = function() {
-            if (se.value === 'outro') {
-                ie.style.display = 'block';
-                ie.value = '';
-            } else {
-                ie.style.display = 'none';
-                ie.value = se.value;
-            }
-        };
-    } else {
-        se.style.display = 'none';
-        ie.style.display = 'block';
-        ie.value = '';
-    }
+        se.onchange = function() { if (se.value === 'outro') { ie.style.display = 'block'; ie.value = ''; } else { ie.style.display = 'none'; ie.value = se.value; } };
+    } else { se.style.display = 'none'; ie.style.display = 'block'; ie.value = ''; }
 });
 
 window.salvarOS = function() {
@@ -1702,15 +1623,7 @@ window.salvarOS = function() {
     const se = document.getElementById('os-equipamento-select');
     if (se.style.display !== 'none' && se.value && se.value !== 'outro') eq = se.value;
     if (!cId || !eq) { mostrarNotificacao('Preencha cliente e equipamento!','erro'); return; }
-    manutencoes.push({
-        id: Date.now(),
-        clienteId: parseInt(cId),
-        equipamento: eq,
-        prioridade: document.getElementById('os-prioridade').value,
-        defeitos: document.getElementById('os-defeitos').value,
-        solucoes: document.getElementById('os-solucoes').value,
-        data: new Date().toISOString()
-    });
+    manutencoes.push({ id: Date.now(), clienteId: parseInt(cId), equipamento: eq, prioridade: document.getElementById('os-prioridade').value, defeitos: document.getElementById('os-defeitos').value, solucoes: document.getElementById('os-solucoes').value, data: new Date().toISOString() });
     salvarManutencoes();
     mostrarNotificacao('OS salva com sucesso!');
     limparOS();
@@ -1739,24 +1652,11 @@ window.limparOS = function() {
 function carregarHistorico() {
     const c = document.getElementById('historico-os');
     if (!c) return;
-    if (manutencoes.length === 0) {
-        c.innerHTML = '<div class="lista-item"><p>Nenhuma OS registrada</p></div>';
-        return;
-    }
+    if (manutencoes.length === 0) { c.innerHTML = '<div class="lista-item"><p>Nenhuma OS registrada</p></div>'; return; }
     c.innerHTML = [...manutencoes].reverse().map(os => {
         const cl = clientes.find(c => c.id === os.clienteId);
         const prBadge = os.prioridade === 'Urgente' ? 'badge-andamento' : (os.prioridade === 'Alta' ? 'badge-aberto' : 'badge-finalizado');
-        return `<div class="lista-item">
-            <div class="item-info">
-                <h4>${cl?.nome || 'N/A'} — ${os.equipamento} ${os.prioridade ? `<span class="badge ${prBadge}">${os.prioridade}</span>` : ''}</h4>
-                <p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()}</p>
-            </div>
-            <div class="lista-item-actions">
-                <button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-primary btn-sm" onclick="irParaFaturamentoComOS(${os.id})"><i class="fas fa-file-invoice-dollar"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="excluirOSLocal(${os.id})"><i class="fas fa-trash"></i></button>
-            </div>
-        </div>`;
+        return `<div class="lista-item"><div class="item-info"><h4>${cl?.nome || 'N/A'} — ${os.equipamento} ${os.prioridade ? `<span class="badge ${prBadge}">${os.prioridade}</span>` : ''}</h4><p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()}</p></div><div class="lista-item-actions"><button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button><button class="btn btn-primary btn-sm" onclick="irParaFaturamentoComOS(${os.id})"><i class="fas fa-file-invoice-dollar"></i></button><button class="btn btn-danger btn-sm" onclick="excluirOSLocal(${os.id})"><i class="fas fa-trash"></i></button></div></div>`;
     }).join('');
 }
 
@@ -1779,11 +1679,7 @@ window.excluirOSLocal = function(id) {
 
 window.irParaFaturamentoComOS = function(id) {
     const s = document.getElementById('faturamento-os-select');
-    if (s) {
-        s.value = id;
-        carregarDadosOSFaturamento();
-        document.querySelector('[data-tela="faturamento"]').click();
-    }
+    if (s) { s.value = id; carregarDadosOSFaturamento(); document.querySelector('[data-tela="faturamento"]').click(); }
 };
 
 window.mostrarAbaHistorico = function(tipo) {
@@ -1799,64 +1695,33 @@ window.mostrarAbaHistorico = function(tipo) {
     if (bo) bo.className = 'btn btn-outline';
     if (bf) bf.className = 'btn btn-outline';
     if (br) br.className = 'btn btn-outline';
-    if (tipo === 'os') {
-        if (osDiv) osDiv.style.display = '';
-        if (bo) bo.className = 'btn btn-primary';
-        carregarHistorico();
-    } else if (tipo === 'faturas') {
-        if (fatDiv) fatDiv.style.display = '';
-        if (bf) bf.className = 'btn btn-primary';
-        carregarHistoricoFaturas();
-    } else {
-        if (relDiv) relDiv.style.display = '';
-        if (br) br.className = 'btn btn-primary';
-        listarTodasOS();
-    }
+    if (tipo === 'os') { if (osDiv) osDiv.style.display = ''; if (bo) bo.className = 'btn btn-primary'; carregarHistorico(); }
+    else if (tipo === 'faturas') { if (fatDiv) fatDiv.style.display = ''; if (bf) bf.className = 'btn btn-primary'; carregarHistoricoFaturas(); }
+    else { if (relDiv) relDiv.style.display = ''; if (br) br.className = 'btn btn-primary'; listarTodasOS(); }
 };
 
 // ==================== RELATÓRIOS ====================
 function listarTodasOS() {
     const c = document.getElementById('lista-todas-os');
     if (!c) return;
-    if (manutencoes.length === 0) {
-        c.innerHTML = '<div class="lista-item"><p>Nenhuma OS registrada</p></div>';
-        return;
-    }
+    if (manutencoes.length === 0) { c.innerHTML = '<div class="lista-item"><p>Nenhuma OS registrada</p></div>'; return; }
     c.innerHTML = [...manutencoes].reverse().map(os => {
         const cl = clientes.find(c => c.id === os.clienteId);
-        return `<div class="lista-item">
-            <div class="item-info">
-                <h4>${cl?.nome || 'N/A'} — ${os.equipamento}</h4>
-                <p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()} | ${(os.defeitos || 'Sem defeito').substring(0, 50)}</p>
-            </div>
-            <div class="lista-item-actions">
-                <button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-outline btn-sm" onclick="enviarOSWhatsAppRel(${os.id})"><i class="fab fa-whatsapp"></i></button>
-                <button class="btn btn-primary btn-sm" onclick="irParaFaturamentoComOS(${os.id})"><i class="fas fa-file-invoice-dollar"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="excluirOSLocal(${os.id})"><i class="fas fa-trash"></i></button>
-            </div>
-        </div>`;
+        return `<div class="lista-item"><div class="item-info"><h4>${cl?.nome || 'N/A'} — ${os.equipamento}</h4><p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()} | ${(os.defeitos || 'Sem defeito').substring(0, 50)}</p></div><div class="lista-item-actions"><button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button><button class="btn btn-outline btn-sm" onclick="enviarOSWhatsAppRel(${os.id})"><i class="fab fa-whatsapp"></i></button><button class="btn btn-primary btn-sm" onclick="irParaFaturamentoComOS(${os.id})"><i class="fas fa-file-invoice-dollar"></i></button><button class="btn btn-danger btn-sm" onclick="excluirOSLocal(${os.id})"><i class="fas fa-trash"></i></button></div></div>`;
     }).join('');
 }
 
 window.enviarOSWhatsAppRel = function(id) {
     const os = manutencoes.find(m => m.id === id);
     const cl = clientes.find(c => c.id === os?.clienteId);
-    if (cl?.telefone) {
-        const m = `*ONS Odontotecnica*\n\nOS #${os.id}\nCliente: ${cl.nome}\nEquipamento: ${os.equipamento}\nDefeito: ${os.defeitos || 'N/A'}\nData: ${new Date(os.data).toLocaleDateString()}\n\n📞 (35) 9 2000-4813`;
-        window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(m)}`, '_blank');
-    } else {
-        mostrarNotificacao('Telefone não encontrado!','erro');
-    }
+    if (cl?.telefone) { const m = `*ONS Odontotecnica*\n\nOS #${os.id}\nCliente: ${cl.nome}\nEquipamento: ${os.equipamento}\nDefeito: ${os.defeitos || 'N/A'}\nData: ${new Date(os.data).toLocaleDateString()}\n\n📞 (35) 9 2000-4813`; window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(m)}`, '_blank'); }
+    else mostrarNotificacao('Telefone não encontrado!','erro');
 };
 
 // ==================== FATURAMENTO ====================
 window.carregarDadosOSFaturamento = function() {
     const id = parseInt(document.getElementById('faturamento-os-select').value);
-    if (!id) {
-        document.getElementById('dados-faturamento').style.display = 'none';
-        return;
-    }
+    if (!id) { document.getElementById('dados-faturamento').style.display = 'none'; return; }
     osSelecionadaFatura = manutencoes.find(m => m.id === id);
     if (!osSelecionadaFatura) return;
     document.getElementById('num-documento').value = `OS-${id}-${new Date().getFullYear()}`;
@@ -1870,10 +1735,7 @@ window.adicionarPecaFatura = function() {
     const nome = document.getElementById('peca-nome').value.trim();
     const valor = parseFloat(document.getElementById('peca-valor').value);
     const qtd = parseInt(document.getElementById('peca-quantidade').value) || 1;
-    if (!nome || isNaN(valor) || valor <= 0) {
-        mostrarNotificacao('Preencha nome e valor válido!','erro');
-        return;
-    }
+    if (!nome || isNaN(valor) || valor <= 0) { mostrarNotificacao('Preencha nome e valor válido!','erro'); return; }
     pecasUtilizadas.push({ nome, valor, quantidade: qtd, subtotal: valor * qtd });
     atualizarTabelaPecasFatura();
     document.getElementById('peca-nome').value = '';
@@ -1882,28 +1744,13 @@ window.adicionarPecaFatura = function() {
     atualizarDocumentoFatura();
 };
 
-window.removerPecaFatura = function(i) {
-    pecasUtilizadas.splice(i, 1);
-    atualizarTabelaPecasFatura();
-    atualizarDocumentoFatura();
-};
+window.removerPecaFatura = function(i) { pecasUtilizadas.splice(i, 1); atualizarTabelaPecasFatura(); atualizarDocumentoFatura(); };
 
 function atualizarTabelaPecasFatura() {
     const tb = document.getElementById('lista-pecas-body');
     if (!tb) return;
-    if (pecasUtilizadas.length === 0) {
-        tb.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:14px; color:#888;">Nenhuma peça adicionada</td></tr>';
-    } else {
-        tb.innerHTML = pecasUtilizadas.map((p, i) => `
-            <tr>
-                <td>${p.nome}</td>
-                <td>${p.quantidade}</td>
-                <td>R$ ${p.valor.toFixed(2)}</td>
-                <td>R$ ${p.subtotal.toFixed(2)}</td>
-                <td><button class="btn btn-danger btn-sm" onclick="removerPecaFatura(${i})"><i class="fas fa-trash"></i></button></td>
-            </tr>
-        `).join('');
-    }
+    if (pecasUtilizadas.length === 0) { tb.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:14px; color:#888;">Nenhuma peça adicionada</td></tr>'; }
+    else { tb.innerHTML = pecasUtilizadas.map((p, i) => `<tr><td>${p.nome}</td><td>${p.quantidade}</td><td>R$ ${p.valor.toFixed(2)}</td><td>R$ ${p.subtotal.toFixed(2)}</td><td><button class="btn btn-danger btn-sm" onclick="removerPecaFatura(${i})"><i class="fas fa-trash"></i></button></td></tr>`).join(''); }
 }
 
 function calcularTotalPecasFatura() { return pecasUtilizadas.reduce((s,p)=>s+p.subtotal,0); }
@@ -1913,19 +1760,12 @@ function getFormaPagamentoTextoFatura() {
     const tipo = document.querySelector('input[name="pagamento-tipo"]:checked')?.value || 'vista';
     const obs = document.getElementById('obs-pagamento')?.value || '';
     const pixChave = document.getElementById('pix-chave')?.value || '';
-    const mapa = {
-        vista: 'Pagamento à vista',
-        cartao: 'Pagamento com Cartão de Crédito',
-        pix: `PIX — Chave: ${pixChave}`,
-        boleto: 'Boleto Bancário',
-        prazo: 'A prazo (30 dias)'
-    };
+    const mapa = { vista: 'Pagamento à vista', cartao: 'Pagamento com Cartão de Crédito', pix: `PIX — Chave: ${pixChave}`, boleto: 'Boleto Bancário', prazo: 'A prazo (30 dias)' };
     return (mapa[tipo] || 'À vista') + (obs ? `\nObs: ${obs}` : '');
 }
 
 function gerarDocumentoHTMLFatura() {
     if (!osSelecionadaFatura) return '<p>Nenhuma OS selecionada</p>';
-    
     const cl = clientes.find(c => c.id === osSelecionadaFatura.clienteId);
     const tp = calcularTotalPecasFatura();
     const mo = calcularMaoObraFatura();
@@ -1934,169 +1774,19 @@ function gerarDocumentoHTMLFatura() {
     const numDoc = document.getElementById('num-documento')?.value || `OS-${osSelecionadaFatura.id}`;
     const pgto = getFormaPagamentoTextoFatura();
     const data = new Date().toLocaleDateString('pt-BR');
-
-    let pecasRows = pecasUtilizadas.length === 0
-        ? '<tr><td colspan="4" style="text-align:center; padding:12px; color:#888;">Nenhuma peça utilizada</td></tr>'
-        : pecasUtilizadas.map(p => `
-            <tr>
-                <td style="padding:6px 10px;">${p.nome}</td>
-                <td style="padding:6px 10px; text-align:center;">${p.quantidade}</td>
-                <td style="padding:6px 10px; text-align:right;">R$ ${p.valor.toFixed(2)}</td>
-                <td style="padding:6px 10px; text-align:right;">R$ ${p.subtotal.toFixed(2)}</td>
-            </tr>
-        `).join('');
-
-    let totaisHTML = fExib === 'somado'
-        ? `<div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; display:flex; justify-content:flex-end; align-items:center; gap:24px;">
-            <span style="font-size:8pt; opacity:0.8;">Peças + M.O. incluídos</span>
-            <span style="font-size:16pt; font-weight:800; color:#f0b429;">TOTAL: R$ ${tv.toFixed(2)}</span>
-        </div>`
-        : `<div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; display:flex; justify-content:flex-end; align-items:center; gap:24px;">
-            <div style="font-size:8.5pt; opacity:0.85; text-align:right;">
-                Peças: R$ ${tp.toFixed(2)}<br>
-                M.O.: R$ ${mo.toFixed(2)}
-            </div>
-            <span style="font-size:16pt; font-weight:800; color:#f0b429;">TOTAL: R$ ${tv.toFixed(2)}</span>
-        </div>`;
-
-    return `<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Fatura ONS - ${numDoc}</title>
-        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-        <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: white; padding: 20px; }
-            .fatura-container { max-width: 680px; margin: 0 auto; background: white; }
-            .header { background: #0a246a; color: white; padding: 20px 28px; display: flex; justify-content: space-between; align-items: flex-start; }
-            .header-title { font-size: 20pt; font-weight: 800; letter-spacing: 1px; font-family: 'Barlow Condensed', 'Inter', sans-serif; }
-            .header-sub { font-size: 8pt; opacity: 0.75; margin-top: 2px; }
-            .header-cnpj { font-size: 7pt; opacity: 0.6; }
-            .header-right { text-align: right; font-size: 9pt; font-weight: 700; }
-            .header-date { font-size: 7pt; opacity: 0.75; }
-            .faixa { background: #f0b429; color: #0a246a; padding: 8px 28px; font-weight: 800; font-size: 11pt; letter-spacing: 2px; }
-            .content { padding: 18px 28px; }
-            .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-            .info-box { background: #f0f4f8; padding: 14px 16px; border-radius: 8px; }
-            .info-title { font-size: 7pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #0a246a; margin-bottom: 7px; border-left: 3px solid #2d5be3; padding-left: 8px; }
-            .info-text { margin: 3px 0; font-size: 9.5pt; }
-            .section-title { font-size: 7pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #0a246a; margin-bottom: 8px; border-left: 3px solid #2d5be3; padding-left: 8px; }
-            table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 9pt; }
-            th { background: #0a246a; color: white; padding: 8px 10px; text-align: left; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; }
-            td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; }
-            .pgto-box { background: #e8eeff; border: 1.5px solid #0a246a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
-            .assinatura { display: flex; justify-content: space-around; text-align: center; margin-top: 28px; font-size: 8.5pt; color: #666; }
-            .assinatura-linha { border-top: 1.5px solid #0a246a; padding-top: 6px; width: 160px; }
-            .footer { text-align: center; font-size: 7pt; color: #aaa; border-top: 1px dashed #ddd; padding-top: 10px; margin-top: 16px; }
-            @media print { body { padding: 0; } }
-        </style>
-    </head>
-    <body>
-        <div class="fatura-container">
-            <div class="header">
-                <div>
-                    <div class="header-title">ONS ODONTOTÉCNICA</div>
-                    <div class="header-sub">Manutenção de Equipamentos Odontológicos</div>
-                    <div class="header-cnpj">CNPJ: 66.326.736/0001-62 | (35) 9 2000-4813 | São Sebastião do Paraíso - MG</div>
-                </div>
-                <div class="header-right">
-                    ${numDoc}<br>
-                    <span class="header-date">${data}</span>
-                </div>
-            </div>
-            <div class="faixa">ORDEM DE SERVIÇO / FATURA</div>
-            <div class="content">
-                <div class="info-grid">
-                    <div class="info-box">
-                        <div class="info-title">DADOS DO CLIENTE</div>
-                        <p class="info-text"><strong>Nome:</strong> ${cl?.nome || 'N/A'}</p>
-                        <p class="info-text"><strong>Telefone:</strong> ${cl?.telefone || 'N/A'}</p>
-                        <p class="info-text"><strong>Endereço:</strong> ${cl?.endereco || 'N/A'}</p>
-                    </div>
-                    <div class="info-box">
-                        <div class="info-title">EQUIPAMENTO</div>
-                        <p class="info-text"><strong>Equipamento:</strong> ${osSelecionadaFatura.equipamento}</p>
-                        <p class="info-text"><strong>Defeito:</strong> ${osSelecionadaFatura.defeitos || 'N/A'}</p>
-                        <p class="info-text"><strong>Serviço:</strong> ${osSelecionadaFatura.solucoes || 'N/A'}</p>
-                    </div>
-                </div>
-
-                <div class="section-title">PEÇAS UTILIZADAS</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Descrição</th>
-                            <th style="text-align:center;">Qtd</th>
-                            <th style="text-align:right;">Valor Unit.</th>
-                            <th style="text-align:right;">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>${pecasRows}</tbody>
-                </table>
-
-                ${totaisHTML}
-
-                <div class="pgto-box">
-                    <div class="info-title" style="border-left-color: #0a246a;">FORMA DE PAGAMENTO</div>
-                    <p style="font-size:9.5pt;">${pgto.replace(/\n/g, '<br>')}</p>
-                </div>
-
-                <div class="assinatura">
-                    <div><div class="assinatura-linha">Assinatura do Cliente</div></div>
-                    <div><div class="assinatura-linha">ONS Odontotécnica</div></div>
-                </div>
-
-                <div class="footer">
-                    ONS Soluções e Eletrotécnica — ${new Date().getFullYear()} — Documento gerado eletronicamente
-                </div>
-            </div>
-        </div>
-    </body>
-    </html>`;
+    let pecasRows = pecasUtilizadas.length === 0 ? '<tr><td colspan="4" style="text-align:center; padding:12px; color:#888;">Nenhuma peça utilizada</td></tr>' : pecasUtilizadas.map(p => `<tr><td style="padding:6px 10px;">${p.nome}</td><td style="padding:6px 10px; text-align:center;">${p.quantidade}</td><td style="padding:6px 10px; text-align:right;">R$ ${p.valor.toFixed(2)}</td><td style="padding:6px 10px; text-align:right;">R$ ${p.subtotal.toFixed(2)}</td></tr>`).join('');
+    let totaisHTML = fExib === 'somado' ? `<div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; display:flex; justify-content:flex-end; align-items:center; gap:24px;"><span style="font-size:8pt; opacity:0.8;">Peças + M.O. incluídos</span><span style="font-size:16pt; font-weight:800; color:#f0b429;">TOTAL: R$ ${tv.toFixed(2)}</span></div>` : `<div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; display:flex; justify-content:flex-end; align-items:center; gap:24px;"><div style="font-size:8.5pt; opacity:0.85; text-align:right;">Peças: R$ ${tp.toFixed(2)}<br>M.O.: R$ ${mo.toFixed(2)}</div><span style="font-size:16pt; font-weight:800; color:#f0b429;">TOTAL: R$ ${tv.toFixed(2)}</span></div>`;
+    return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Fatura ONS - ${numDoc}</title><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:white;padding:20px;}.fatura-container{max-width:680px;margin:0 auto;background:white;}.header{background:#0a246a;color:white;padding:20px 28px;display:flex;justify-content:space-between;align-items:flex-start;}.header-title{font-size:20pt;font-weight:800;letter-spacing:1px;font-family:'Barlow Condensed','Inter',sans-serif;}.header-sub{font-size:8pt;opacity:0.75;margin-top:2px;}.header-cnpj{font-size:7pt;opacity:0.6;}.header-right{text-align:right;font-size:9pt;font-weight:700;}.header-date{font-size:7pt;opacity:0.75;}.faixa{background:#f0b429;color:#0a246a;padding:8px 28px;font-weight:800;font-size:11pt;letter-spacing:2px;}.content{padding:18px 28px;}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}.info-box{background:#f0f4f8;padding:14px 16px;border-radius:8px;}.info-title{font-size:7pt;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#0a246a;margin-bottom:7px;border-left:3px solid #2d5be3;padding-left:8px;}.info-text{margin:3px 0;font-size:9.5pt;}.section-title{font-size:7pt;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#0a246a;margin-bottom:8px;border-left:3px solid #2d5be3;padding-left:8px;}table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:9pt;}th{background:#0a246a;color:white;padding:8px 10px;text-align:left;font-size:7.5pt;font-weight:700;text-transform:uppercase;}td{padding:6px 10px;border-bottom:1px solid #e2e8f0;}.pgto-box{background:#e8eeff;border:1.5px solid #0a246a;border-radius:8px;padding:12px 16px;margin:12px 0;}.assinatura{display:flex;justify-content:space-around;text-align:center;margin-top:28px;font-size:8.5pt;color:#666;}.assinatura-linha{border-top:1.5px solid #0a246a;padding-top:6px;width:160px;}.footer{text-align:center;font-size:7pt;color:#aaa;border-top:1px dashed #ddd;padding-top:10px;margin-top:16px;}@media print{body{padding:0;}}</style></head><body><div class="fatura-container"><div class="header"><div><div class="header-title">ONS ODONTOTÉCNICA</div><div class="header-sub">Manutenção de Equipamentos Odontológicos</div><div class="header-cnpj">CNPJ: 66.326.736/0001-62 | (35) 9 2000-4813 | São Sebastião do Paraíso - MG</div></div><div class="header-right">${numDoc}<br><span class="header-date">${data}</span></div></div><div class="faixa">ORDEM DE SERVIÇO / FATURA</div><div class="content"><div class="info-grid"><div class="info-box"><div class="info-title">DADOS DO CLIENTE</div><p class="info-text"><strong>Nome:</strong> ${cl?.nome || 'N/A'}</p><p class="info-text"><strong>Telefone:</strong> ${cl?.telefone || 'N/A'}</p><p class="info-text"><strong>Endereço:</strong> ${cl?.endereco || 'N/A'}</p></div><div class="info-box"><div class="info-title">EQUIPAMENTO</div><p class="info-text"><strong>Equipamento:</strong> ${osSelecionadaFatura.equipamento}</p><p class="info-text"><strong>Defeito:</strong> ${osSelecionadaFatura.defeitos || 'N/A'}</p><p class="info-text"><strong>Serviço:</strong> ${osSelecionadaFatura.solucoes || 'N/A'}</p></div></div><div class="section-title">PEÇAS UTILIZADAS</div><table><thead><tr><th>Descrição</th><th style="text-align:center;">Qtd</th><th style="text-align:right;">Valor Unit.</th><th style="text-align:right;">Subtotal</th></tr></thead><tbody>${pecasRows}</tbody></table>${totaisHTML}<div class="pgto-box"><div class="info-title" style="border-left-color: #0a246a;">FORMA DE PAGAMENTO</div><p style="font-size:9.5pt;">${pgto.replace(/\n/g, '<br>')}</p></div><div class="assinatura"><div><div class="assinatura-linha">Assinatura do Cliente</div></div><div><div class="assinatura-linha">ONS Odontotécnica</div></div></div><div class="footer">ONS Soluções e Eletrotécnica — ${new Date().getFullYear()} — Documento gerado eletronicamente</div></div></div></body></html>`;
 }
 
-function atualizarDocumentoFatura() {
-    if (!osSelecionadaFatura) return;
-    const h = gerarDocumentoHTMLFatura();
-    const p = document.getElementById('preview-documento');
-    if (p) p.innerHTML = h;
-    const d = document.getElementById('documento-impressao');
-    if (d) d.innerHTML = h;
-}
+function atualizarDocumentoFatura() { if (!osSelecionadaFatura) return; const h = gerarDocumentoHTMLFatura(); const p = document.getElementById('preview-documento'); if (p) p.innerHTML = h; const d = document.getElementById('documento-impressao'); if (d) d.innerHTML = h; }
 
-window.imprimirDocumentoFatura = function() {
-    if (!osSelecionadaFatura) {
-        mostrarNotificacao('Selecione uma OS primeiro!', 'erro');
-        return;
-    }
-    const w = window.open('', '_blank');
-    w.document.write(gerarDocumentoHTMLFatura());
-    w.document.close();
-    setTimeout(() => w.print(), 500);
-};
+window.imprimirDocumentoFatura = function() { if (!osSelecionadaFatura) { mostrarNotificacao('Selecione uma OS primeiro!', 'erro'); return; } const w = window.open('', '_blank'); w.document.write(gerarDocumentoHTMLFatura()); w.document.close(); setTimeout(() => w.print(), 500); };
 
-window.enviarFaturaWhatsAppAtual = function() {
-    if (!osSelecionadaFatura) {
-        mostrarNotificacao('Selecione uma OS primeiro!', 'erro');
-        return;
-    }
-    const cl = clientes.find(c => c.id === osSelecionadaFatura.clienteId);
-    if (!cl?.telefone) {
-        mostrarNotificacao('Cliente sem telefone!', 'erro');
-        return;
-    }
-    const doc = document.createElement('div');
-    doc.innerHTML = gerarDocumentoHTMLFatura();
-    const texto = `*ONS ODONTOTÉCNICA*\n\n${doc.innerText}`;
-    window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(texto)}`, '_blank');
-};
+window.enviarFaturaWhatsAppAtual = function() { if (!osSelecionadaFatura) { mostrarNotificacao('Selecione uma OS primeiro!', 'erro'); return; } const cl = clientes.find(c => c.id === osSelecionadaFatura.clienteId); if (!cl?.telefone) { mostrarNotificacao('Cliente sem telefone!', 'erro'); return; } const doc = document.createElement('div'); doc.innerHTML = gerarDocumentoHTMLFatura(); const texto = `*ONS ODONTOTÉCNICA*\n\n${doc.innerText}`; window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(texto)}`, '_blank'); };
 
 window.salvarFatura = function() {
-    if (!osSelecionadaFatura) {
-        mostrarNotificacao('Selecione uma OS primeiro!', 'erro');
-        return;
-    }
+    if (!osSelecionadaFatura) { mostrarNotificacao('Selecione uma OS primeiro!', 'erro'); return; }
     const cl = clientes.find(c => c.id === osSelecionadaFatura.clienteId);
     if (!cl) return;
     const tp = calcularTotalPecasFatura();
@@ -2105,125 +1795,27 @@ window.salvarFatura = function() {
     const pgto = document.querySelector('input[name="pagamento-tipo"]:checked')?.value || 'vista';
     const pixChave = document.getElementById('pix-chave')?.value || '';
     const numDoc = document.getElementById('num-documento')?.value || `OS-${osSelecionadaFatura.id}`;
-    
-    faturas.push({
-        id: Date.now(),
-        osId: osSelecionadaFatura.id,
-        clienteId: cl.id,
-        clienteNome: cl.nome,
-        equipamento: osSelecionadaFatura.equipamento,
-        numeroDocumento: numDoc,
-        data: new Date().toISOString(),
-        totalPecas: tp,
-        maoObra: mo,
-        valorTotal: tv,
-        status: 'EM ABERTO',
-        formaPagamento: pgto,
-        pixChave: pixChave,
-        pecas: [...pecasUtilizadas]
-    });
+    faturas.push({ id: Date.now(), osId: osSelecionadaFatura.id, clienteId: cl.id, clienteNome: cl.nome, equipamento: osSelecionadaFatura.equipamento, numeroDocumento: numDoc, data: new Date().toISOString(), totalPecas: tp, maoObra: mo, valorTotal: tv, status: 'EM ABERTO', formaPagamento: pgto, pixChave: pixChave, pecas: [...pecasUtilizadas] });
     salvarFaturas();
     mostrarNotificacao('Fatura salva! Status: EM ABERTO');
     carregarHistoricoFaturas();
     atualizarDashboard();
 };
 
-window.finalizarFatura = function(id) {
-    const f = faturas.find(x => x.id === id);
-    if (f) {
-        f.status = 'FINALIZADA';
-        f.dataFinalizacao = new Date().toISOString();
-        salvarFaturas();
-        carregarHistoricoFaturas();
-        atualizarDashboard();
-        mostrarNotificacao('Fatura finalizada!');
-    }
-};
+window.finalizarFatura = function(id) { const f = faturas.find(x => x.id === id); if (f) { f.status = 'FINALIZADA'; f.dataFinalizacao = new Date().toISOString(); salvarFaturas(); carregarHistoricoFaturas(); atualizarDashboard(); mostrarNotificacao('Fatura finalizada!'); } };
 
 function carregarHistoricoFaturas() {
     const c = document.getElementById('historico-faturas');
     if (!c) return;
-    if (faturas.length === 0) {
-        c.innerHTML = '<div class="lista-item"><p>Nenhuma fatura registrada</p></div>';
-        return;
-    }
-    c.innerHTML = [...faturas].reverse().map(f => `
-        <div class="lista-item">
-            <div class="item-info">
-                <h4>${f.clienteNome} — ${f.numeroDocumento}</h4>
-                <p>Valor: ${formatMoney(f.valorTotal)} | Status: <span class="badge ${f.status === 'FINALIZADA' ? 'badge-finalizado' : 'badge-andamento'}">${f.status}</span></p>
-            </div>
-            <div class="lista-item-actions">
-                <button class="btn btn-outline btn-sm" onclick="imprimirFaturaSalva(${f.id})"><i class="fas fa-print"></i></button>
-                ${f.status === 'EM ABERTO' ? `<button class="btn btn-success btn-sm" onclick="finalizarFatura(${f.id})"><i class="fas fa-check"></i></button>` : ''}
-                <button class="btn btn-outline btn-sm" onclick="enviarFaturaWhatsApp(${f.id})"><i class="fab fa-whatsapp"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="excluirFatura(${f.id})"><i class="fas fa-trash"></i></button>
-            </div>
-        </div>
-    `).join('');
+    if (faturas.length === 0) { c.innerHTML = '<div class="lista-item"><p>Nenhuma fatura registrada</p></div>'; return; }
+    c.innerHTML = [...faturas].reverse().map(f => `<div class="lista-item"><div class="item-info"><h4>${f.clienteNome} — ${f.numeroDocumento}</h4><p>Valor: ${formatMoney(f.valorTotal)} | Status: <span class="badge ${f.status === 'FINALIZADA' ? 'badge-finalizado' : 'badge-andamento'}">${f.status}</span></p></div><div class="lista-item-actions"><button class="btn btn-outline btn-sm" onclick="imprimirFaturaSalva(${f.id})"><i class="fas fa-print"></i></button>${f.status === 'EM ABERTO' ? `<button class="btn btn-success btn-sm" onclick="finalizarFatura(${f.id})"><i class="fas fa-check"></i></button>` : ''}<button class="btn btn-outline btn-sm" onclick="enviarFaturaWhatsApp(${f.id})"><i class="fab fa-whatsapp"></i></button><button class="btn btn-danger btn-sm" onclick="excluirFatura(${f.id})"><i class="fas fa-trash"></i></button></div></div>`).join('');
 }
 
-window.imprimirFaturaSalva = function(id) {
-    const f = faturas.find(x => x.id === id);
-    if (!f) return;
-    const cl = clientes.find(c => c.id === f.clienteId);
-    const pecasRows = f.pecas && f.pecas.length > 0
-        ? f.pecas.map(p => `<tr><td style="padding:6px 10px;">${p.nome}</td><td style="padding:6px 10px;">${p.quantidade}</td><td style="padding:6px 10px;">R$ ${p.valor.toFixed(2)}</td><td style="padding:6px 10px;">R$ ${p.subtotal.toFixed(2)}</td></tr>`).join('')
-        : '<tr><td colspan="4" style="text-align:center; padding:12px; color:#888;">Nenhuma peça</td></tr>';
-    
-    const html = `<div style="font-family:'Inter','Segoe UI',Arial,sans-serif; max-width:680px; margin:0 auto; background:white;">
-        <div style="background:#0a246a; color:white; padding:20px 28px; display:flex; justify-content:space-between;">
-            <div>
-                <div style="font-size:20pt; font-weight:800; font-family:'Barlow Condensed','Inter',sans-serif;">ONS ODONTOTÉCNICA</div>
-                <div style="font-size:7pt; opacity:0.6;">CNPJ: 66.326.736/0001-62 | (35) 9 2000-4813 | São Sebastião do Paraíso - MG</div>
-            </div>
-            <div style="text-align:right; font-size:9pt; font-weight:700;">${f.numeroDocumento}<br><span style="font-size:7pt; opacity:0.75;">${new Date(f.data).toLocaleDateString()}</span></div>
-        </div>
-        <div style="background:#f0b429; color:#0a246a; padding:8px 28px; font-weight:800; font-size:11pt; letter-spacing:2px;">FATURA — ${f.status}</div>
-        <div style="padding:18px 28px;">
-            <p><strong>Cliente:</strong> ${f.clienteNome}</p>
-            <p><strong>Telefone:</strong> ${cl?.telefone || 'N/A'}</p>
-            <p><strong>Equipamento:</strong> ${f.equipamento}</p>
-            <br>
-            <table style="width:100%; border-collapse:collapse; font-size:9pt;">
-                <thead><tr style="background:#0a246a; color:white;"><th style="padding:8px 10px; text-align:left;">Peça</th><th style="padding:8px 10px;">Qtd</th><th style="padding:8px 10px;">Unit.</th><th style="padding:8px 10px;">Subtotal</th></tr></thead>
-                <tbody>${pecasRows}</tbody>
-            </table>
-            <div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; text-align:right; margin-top:10px;">
-                <span style="font-size:15pt; font-weight:800; color:#f0b429;">TOTAL: ${formatMoney(f.valorTotal)}</span>
-            </div>
-            <div style="display:flex; justify-content:space-around; text-align:center; margin-top:28px; font-size:8pt; color:#666;">
-                <div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Assinatura do Cliente</div>
-                <div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">ONS Odontotécnica</div>
-            </div>
-        </div>
-    </div>`;
-    
-    const w = window.open('', '_blank');
-    w.document.write(`<!DOCTYPE html><html><head><title>Fatura ONS</title><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></head><body style="margin:0; padding:20px;">${html}</body></html>`);
-    w.document.close();
-    setTimeout(() => w.print(), 800);
-};
+window.imprimirFaturaSalva = function(id) { const f = faturas.find(x => x.id === id); if (!f) return; const cl = clientes.find(c => c.id === f.clienteId); const pecasRows = f.pecas && f.pecas.length > 0 ? f.pecas.map(p => `<tr><td style="padding:6px 10px;">${p.nome}</td><td style="padding:6px 10px;">${p.quantidade}</td><td style="padding:6px 10px;">R$ ${p.valor.toFixed(2)}</td><td style="padding:6px 10px;">R$ ${p.subtotal.toFixed(2)}</td></tr>`).join('') : '<tr><td colspan="4" style="text-align:center; padding:12px; color:#888;">Nenhuma peça</td></tr>'; const html = `<div style="font-family:'Inter','Segoe UI',Arial,sans-serif; max-width:680px; margin:0 auto; background:white;"><div style="background:#0a246a; color:white; padding:20px 28px; display:flex; justify-content:space-between;"><div><div style="font-size:20pt; font-weight:800; font-family:'Barlow Condensed','Inter',sans-serif;">ONS ODONTOTÉCNICA</div><div style="font-size:7pt; opacity:0.6;">CNPJ: 66.326.736/0001-62 | (35) 9 2000-4813 | São Sebastião do Paraíso - MG</div></div><div style="text-align:right; font-size:9pt; font-weight:700;">${f.numeroDocumento}<br><span style="font-size:7pt; opacity:0.75;">${new Date(f.data).toLocaleDateString()}</span></div></div><div style="background:#f0b429; color:#0a246a; padding:8px 28px; font-weight:800; font-size:11pt; letter-spacing:2px;">FATURA — ${f.status}</div><div style="padding:18px 28px;"><p><strong>Cliente:</strong> ${f.clienteNome}</p><p><strong>Telefone:</strong> ${cl?.telefone || 'N/A'}</p><p><strong>Equipamento:</strong> ${f.equipamento}</p><br><table style="width:100%; border-collapse:collapse; font-size:9pt;"><thead><tr style="background:#0a246a; color:white;"><th style="padding:8px 10px; text-align:left;">Peça</th><th style="padding:8px 10px;">Qtd</th><th style="padding:8px 10px;">Unit.</th><th style="padding:8px 10px;">Subtotal</th></tr></thead><tbody>${pecasRows}</tbody>}</table><div style="background:#0a246a; color:white; padding:12px 16px; border-radius:8px; text-align:right; margin-top:10px;"><span style="font-size:15pt; font-weight:800; color:#f0b429;">TOTAL: ${formatMoney(f.valorTotal)}</span></div><div style="display:flex; justify-content:space-around; text-align:center; margin-top:28px; font-size:8pt; color:#666;"><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Assinatura do Cliente</div><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">ONS Odontotécnica</div></div></div></div>`; const w = window.open('', '_blank'); w.document.write(`<!DOCTYPE html><html><head><title>Fatura ONS</title><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></head><body style="margin:0; padding:20px;">${html}</body></html>`); w.document.close(); setTimeout(() => w.print(), 800); };
 
-window.excluirFatura = function(id) {
-    if (!confirm('Excluir esta fatura?')) return;
-    faturas = faturas.filter(f => f.id !== id);
-    salvarFaturas();
-    carregarHistoricoFaturas();
-    atualizarDashboard();
-    mostrarNotificacao('Fatura excluída!');
-};
+window.excluirFatura = function(id) { if (!confirm('Excluir esta fatura?')) return; faturas = faturas.filter(f => f.id !== id); salvarFaturas(); carregarHistoricoFaturas(); atualizarDashboard(); mostrarNotificacao('Fatura excluída!'); };
 
-window.enviarFaturaWhatsApp = function(id) {
-    const f = faturas.find(x => x.id === id);
-    const cl = clientes.find(c => c.id === f?.clienteId);
-    if (cl?.telefone) {
-        const msg = `Fatura ${f.numeroDocumento}\nCliente: ${f.clienteNome}\nValor: ${formatMoney(f.valorTotal)}\nStatus: ${f.status}`;
-        window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(msg)}`, '_blank');
-    } else {
-        mostrarNotificacao('Telefone não encontrado!', 'erro');
-    }
-};
+window.enviarFaturaWhatsApp = function(id) { const f = faturas.find(x => x.id === id); const cl = clientes.find(c => c.id === f?.clienteId); if (cl?.telefone) { const msg = `Fatura ${f.numeroDocumento}\nCliente: ${f.clienteNome}\nValor: ${formatMoney(f.valorTotal)}\nStatus: ${f.status}`; window.open(`https://wa.me/55${cl.telefone.replace(/\D/g, '')}?text=${encodeURIComponent(msg)}`, '_blank'); } else mostrarNotificacao('Telefone não encontrado!', 'erro'); };
 
 // ==================== AUDITORIA ====================
 function gerarResumoAuditoria() {
@@ -2232,42 +1824,15 @@ function gerarResumoAuditoria() {
     const totVal = faturas.reduce((s, f) => s + f.valorTotal, 0);
     const totAb = faturas.filter(f => f.status === 'EM ABERTO').reduce((s, f) => s + f.valorTotal, 0);
     const totFin = faturas.filter(f => f.status === 'FINALIZADA').reduce((s, f) => s + f.valorTotal, 0);
-    
-    let html = `<div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
-        <div class="card"><div class="card-icon"><i class="fas fa-clipboard-list"></i></div><h3>${totOS}</h3><p>Total OS</p></div>
-        <div class="card"><div class="card-icon green"><i class="fas fa-file-invoice-dollar"></i></div><h3>${totFat}</h3><p>Faturas</p></div>
-        <div class="card"><div class="card-icon gold"><i class="fas fa-dollar-sign"></i></div><h3 style="font-size:1.2rem;">${formatMoney(totVal)}</h3><p>Total Faturado</p></div>
-        <div class="card"><div class="card-icon red"><i class="fas fa-clock"></i></div><h3 style="font-size:1.2rem;">${formatMoney(totAb)}</h3><p>Em Aberto</p></div>
-    </div>
-    <div style="font-size:0.8rem; font-weight:700; color:var(--azul); margin-bottom:8px;">Faturamento por Cliente</div>`;
-    
-    clientes.forEach(c => {
-        const t = faturas.filter(f => f.clienteId === c.id).reduce((s, f) => s + f.valorTotal, 0);
-        if (t > 0) html += `<div class="lista-item"><span>${c.nome}</span><span style="font-weight:700; color:var(--azul);">${formatMoney(t)}</span></div>`;
-    });
-    
+    let html = `<div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;"><div class="card"><div class="card-icon"><i class="fas fa-clipboard-list"></i></div><h3>${totOS}</h3><p>Total OS</p></div><div class="card"><div class="card-icon green"><i class="fas fa-file-invoice-dollar"></i></div><h3>${totFat}</h3><p>Faturas</p></div><div class="card"><div class="card-icon gold"><i class="fas fa-dollar-sign"></i></div><h3 style="font-size:1.2rem;">${formatMoney(totVal)}</h3><p>Total Faturado</p></div><div class="card"><div class="card-icon red"><i class="fas fa-clock"></i></div><h3 style="font-size:1.2rem;">${formatMoney(totAb)}</h3><p>Em Aberto</p></div></div><div style="font-size:0.8rem; font-weight:700; color:var(--azul); margin-bottom:8px;">Faturamento por Cliente</div>`;
+    clientes.forEach(c => { const t = faturas.filter(f => f.clienteId === c.id).reduce((s, f) => s + f.valorTotal, 0); if (t > 0) html += `<div class="lista-item"><span>${c.nome}</span><span style="font-weight:700; color:var(--azul);">${formatMoney(t)}</span></div>`; });
     const txt = `Auditoria ONS Odontotécnica\n${'='.repeat(30)}\nTotal OS: ${totOS}\nTotal Faturas: ${totFat}\nTotal Faturado: ${formatMoney(totVal)}\nEm Aberto: ${formatMoney(totAb)}\nFinalizadas: ${formatMoney(totFin)}\n\nClientes:\n${clientes.map(c => { const t = faturas.filter(f => f.clienteId === c.id).reduce((s, f) => s + f.valorTotal, 0); return `${c.nome}: ${formatMoney(t)}`; }).join('\n')}`;
-    
     return { html, txt };
 }
 
-window.abrirAuditoria = function() {
-    document.getElementById('conteudo-auditoria').innerHTML = gerarResumoAuditoria().html;
-    document.getElementById('modalAuditoria').classList.add('active');
-};
-
-window.exportarAuditoriaTXT = function() {
-    const b = new Blob([gerarResumoAuditoria().txt], { type: 'text/plain' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(b);
-    a.download = `auditoria_ons_${new Date().toISOString().split('T')[0]}.txt`;
-    a.click();
-};
-
-window.enviarAuditoriaWhatsApp = function() {
-    const n = prompt('Número WhatsApp (com DDD):');
-    if (n) window.open(`https://wa.me/55${n.replace(/\D/g, '')}?text=${encodeURIComponent(gerarResumoAuditoria().txt)}`, '_blank');
-};
+window.abrirAuditoria = function() { document.getElementById('conteudo-auditoria').innerHTML = gerarResumoAuditoria().html; document.getElementById('modalAuditoria').classList.add('active'); };
+window.exportarAuditoriaTXT = function() { const b = new Blob([gerarResumoAuditoria().txt], { type: 'text/plain' }); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `auditoria_ons_${new Date().toISOString().split('T')[0]}.txt`; a.click(); };
+window.enviarAuditoriaWhatsApp = function() { const n = prompt('Número WhatsApp (com DDD):'); if (n) window.open(`https://wa.me/55${n.replace(/\D/g, '')}?text=${encodeURIComponent(gerarResumoAuditoria().txt)}`, '_blank'); };
 
 // ==================== OS CLIENTES SUPABASE ====================
 window.carregarOSClientes = async function() {
@@ -2279,53 +1844,17 @@ window.carregarOSClientes = async function() {
         document.getElementById('total-os-andamento').textContent = osClientes.filter(o => o.status !== 'Finalizado').length;
         document.getElementById('total-os-finalizadas').textContent = osClientes.filter(o => o.status === 'Finalizado').length;
         const c = document.getElementById('lista-os-clientes');
-        if (osClientes.length === 0) {
-            c.innerHTML = '<div class="lista-item"><p>Nenhuma OS</p></div>';
-            return;
-        }
-        c.innerHTML = osClientes.map(os => `
-            <div class="lista-item">
-                <div class="item-info">
-                    <h4>${os.clinica || 'N/A'} — ${os.equipamento} <span class="badge ${os.status === 'Finalizado' ? 'badge-finalizado' : 'badge-andamento'}">${os.status || 'Em andamento'}</span></h4>
-                    <p>${new Date(os.created_at).toLocaleString()} | ${os.prioridade || 'Normal'}</p>
-                </div>
-                <div class="lista-item-actions">
-                    <button class="btn btn-outline btn-sm" onclick="visualizarOSCliente(${os.id})"><i class="fas fa-eye"></i></button>
-                    <button class="btn btn-outline btn-sm" onclick="enviarWhatsAppOS(${os.id})"><i class="fab fa-whatsapp"></i></button>
-                </div>
-            </div>
-        `).join('');
+        if (osClientes.length === 0) { c.innerHTML = '<div class="lista-item"><p>Nenhuma OS</p></div>'; return; }
+        c.innerHTML = osClientes.map(os => `<div class="lista-item"><div class="item-info"><h4>${os.clinica || 'N/A'} — ${os.equipamento} <span class="badge ${os.status === 'Finalizado' ? 'badge-finalizado' : 'badge-andamento'}">${os.status || 'Em andamento'}</span></h4><p>${new Date(os.created_at).toLocaleString()} | ${os.prioridade || 'Normal'}</p></div><div class="lista-item-actions"><button class="btn btn-outline btn-sm" onclick="visualizarOSCliente(${os.id})"><i class="fas fa-eye"></i></button><button class="btn btn-outline btn-sm" onclick="enviarWhatsAppOS(${os.id})"><i class="fab fa-whatsapp"></i></button></div></div>`).join('');
         mostrarNotificacao(`${osClientes.length} OS carregadas!`);
-    } catch (e) {
-        mostrarNotificacao('Erro: ' + e.message, 'erro');
-    }
+    } catch (e) { mostrarNotificacao('Erro: ' + e.message, 'erro'); }
 };
 
-window.visualizarOSCliente = function(id) {
-    const os = osClientes.find(o => o.id === id);
-    document.getElementById('modal-body').innerHTML = `<p><strong>Clínica:</strong> ${os?.clinica}<br><strong>Telefone:</strong> ${os?.telefone_cliente}<br><strong>Equipamento:</strong> ${os?.equipamento}<br><strong>Prioridade:</strong> ${os?.prioridade}<br><strong>Detalhe:</strong> ${os?.detalhe || 'N/A'}<br><strong>Status:</strong> ${os?.status}</p>`;
-    document.getElementById('modalOS').classList.add('active');
-};
+window.visualizarOSCliente = function(id) { const os = osClientes.find(o => o.id === id); document.getElementById('modal-body').innerHTML = `<p><strong>Clínica:</strong> ${os?.clinica}<br><strong>Telefone:</strong> ${os?.telefone_cliente}<br><strong>Equipamento:</strong> ${os?.equipamento}<br><strong>Prioridade:</strong> ${os?.prioridade}<br><strong>Detalhe:</strong> ${os?.detalhe || 'N/A'}<br><strong>Status:</strong> ${os?.status}</p>`; document.getElementById('modalOS').classList.add('active'); };
 
-window.enviarWhatsAppOS = function(id) {
-    const os = osClientes.find(o => o.id === id);
-    if (os?.telefone_cliente) {
-        window.open(`https://wa.me/55${os.telefone_cliente.replace(/\D/g, '')}?text=OS%20${os.id}%20%E2%80%94%20${os.equipamento}`, '_blank');
-    } else {
-        mostrarNotificacao('Telefone não encontrado', 'erro');
-    }
-};
+window.enviarWhatsAppOS = function(id) { const os = osClientes.find(o => o.id === id); if (os?.telefone_cliente) { window.open(`https://wa.me/55${os.telefone_cliente.replace(/\D/g, '')}?text=OS%20${os.id}%20%E2%80%94%20${os.equipamento}`, '_blank'); } else mostrarNotificacao('Telefone não encontrado', 'erro'); };
 
-window.enviarMsgParaTodos = function() {
-    const msg = prompt('Mensagem para todos os clientes:', 'ONS Odontotecnica — Estamos à disposição!');
-    if (msg) {
-        osClientes.forEach(os => {
-            if (os.telefone_cliente) {
-                window.open(`https://wa.me/55${os.telefone_cliente.replace(/\D/g, '')}?text=${encodeURIComponent(msg)}`, '_blank');
-            }
-        });
-    }
-};
+window.enviarMsgParaTodos = function() { const msg = prompt('Mensagem para todos os clientes:', 'ONS Odontotecnica — Estamos à disposição!'); if (msg) { osClientes.forEach(os => { if (os.telefone_cliente) { window.open(`https://wa.me/55${os.telefone_cliente.replace(/\D/g, '')}?text=${encodeURIComponent(msg)}`, '_blank'); } }); } };
 
 // ==================== DASHBOARD ====================
 function atualizarDashboard() {
@@ -2333,838 +1862,73 @@ function atualizarDashboard() {
     document.getElementById('total-os-dash').textContent = manutencoes.length;
     document.getElementById('total-andamento-dash').textContent = manutencoes.length;
     document.getElementById('total-faturas-dash').textContent = faturas.length;
-    
     const r = document.getElementById('lista-recentes');
-    if (r) {
-        const ult = manutencoes.slice(-5).reverse();
-        r.innerHTML = ult.length === 0 ? '<div class="lista-item"><p>Nenhuma OS recente</p></div>' :
-            ult.map(os => {
-                const cl = clientes.find(c => c.id === os.clienteId);
-                return `<div class="lista-item">
-                    <div class="item-info">
-                        <h4>${cl?.nome || 'N/A'} — ${os.equipamento}</h4>
-                        <p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()}</p>
-                    </div>
-                    <div class="lista-item-actions">
-                        <button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button>
-                    </div>
-                </div>`;
-            }).join('');
-    }
+    if (r) { const ult = manutencoes.slice(-5).reverse(); r.innerHTML = ult.length === 0 ? '<div class="lista-item"><p>Nenhuma OS recente</p></div>' : ult.map(os => { const cl = clientes.find(c => c.id === os.clienteId); return `<div class="lista-item"><div class="item-info"><h4>${cl?.nome || 'N/A'} — ${os.equipamento}</h4><p><i class="fas fa-calendar"></i> ${new Date(os.data).toLocaleDateString()}</p></div><div class="lista-item-actions"><button class="btn btn-outline btn-sm" onclick="verOSDetalhes(${os.id})"><i class="fas fa-eye"></i></button></div></div>`; }).join(''); }
 }
 
 // ==================== LOGO ====================
-function carregarLogoSaved() {
-    const ls = localStorage.getItem('ons_logo');
-    if (ls) {
-        const d = document.getElementById('logoDisplay');
-        d.innerHTML = `<img src="${ls}" style="width:100%;height:100%;object-fit:contain;">`;
-        d.style.background = 'transparent';
-    }
-}
+function carregarLogoSaved() { const ls = localStorage.getItem('ons_logo'); if (ls) { const d = document.getElementById('logoDisplay'); d.innerHTML = `<img src="${ls}" style="width:100%;height:100%;object-fit:contain;">`; d.style.background = 'transparent'; } }
 
-window.restaurarLogoPadrao = function() {
-    const d = document.getElementById('logoDisplay');
-    d.innerHTML = '<i class="fas fa-tooth"></i>';
-    d.style.background = 'var(--ouro)';
-    localStorage.removeItem('ons_logo');
-    mostrarNotificacao('Logo restaurada!');
-};
+window.restaurarLogoPadrao = function() { const d = document.getElementById('logoDisplay'); d.innerHTML = '<i class="fas fa-tooth"></i>'; d.style.background = 'var(--ouro)'; localStorage.removeItem('ons_logo'); mostrarNotificacao('Logo restaurada!'); };
 
-document.getElementById('logoUpload')?.addEventListener('change', function(e) {
-    const f = e.target.files[0];
-    if (!f) return;
-    const r = new FileReader();
-    r.onload = function(ev) {
-        const d = document.getElementById('logoDisplay');
-        d.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:contain;">`;
-        d.style.background = 'transparent';
-        localStorage.setItem('ons_logo', ev.target.result);
-        mostrarNotificacao('Logo alterada!');
-    };
-    r.readAsDataURL(f);
-});
+document.getElementById('logoUpload')?.addEventListener('change', function(e) { const f = e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = function(ev) { const d = document.getElementById('logoDisplay'); d.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:contain;">`; d.style.background = 'transparent'; localStorage.setItem('ons_logo', ev.target.result); mostrarNotificacao('Logo alterada!'); }; r.readAsDataURL(f); });
 
 // ==================== MENU ====================
-document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        this.classList.add('active');
-        const tela = this.getAttribute('data-tela');
-        const panel = document.getElementById(tela);
-        if (panel) panel.classList.add('active');
-        
-        if (tela === 'dashboard') atualizarDashboard();
-        if (tela === 'clientes') carregarListaClientes();
-        if (tela === 'equipamentos') mostrarEquipamentos();
-        if (tela === 'historico') {
-            carregarHistorico();
-            carregarHistoricoFaturas();
-        }
-        if (tela === 'faturamento') carregarSelects();
-        if (tela === 'osclientes') carregarOSClientes();
-        if (tela === 'orcamento') carregarSelects();
-        if (tela === 'laudos') {
-            laudoPopularSelectCliente();
-            laudoInicializar();
-            laudoAtualizarDash();
-            laudoRenderHist();
-        }
-    });
-});
+document.querySelectorAll('.nav-btn').forEach(btn => { btn.addEventListener('click', function() { document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); document.querySelectorAll('.panel').forEach(p => p.classList.remove('active')); this.classList.add('active'); const tela = this.getAttribute('data-tela'); const panel = document.getElementById(tela); if (panel) panel.classList.add('active'); if (tela === 'dashboard') atualizarDashboard(); if (tela === 'clientes') carregarListaClientes(); if (tela === 'equipamentos') mostrarEquipamentos(); if (tela === 'historico') { carregarHistorico(); carregarHistoricoFaturas(); } if (tela === 'faturamento') carregarSelects(); if (tela === 'osclientes') carregarOSClientes(); if (tela === 'orcamento') carregarSelects(); if (tela === 'laudos') { laudoPopularSelectCliente(); laudoInicializar(); laudoAtualizarDash(); laudoRenderHist(); } }); });
 
 // ==================== EVENTOS ORÇAMENTO ====================
-const telefoneInput = document.getElementById('orcClienteTelefone');
-if (telefoneInput) {
-    telefoneInput.addEventListener('input', function(e) {
-        e.target.value = orcMascaraTelefone(e.target.value);
-    });
-}
-
-const addPecaBtn = document.getElementById('orcBtnAdicionarPeca');
-if (addPecaBtn) {
-    addPecaBtn.addEventListener('click', () => {
-        const nome = document.getElementById('orcNomePeca').value.trim();
-        const val = parseMoneyToFloat(document.getElementById('orcValorPeca').value);
-        const qtd = parseInt(document.getElementById('orcQtdPeca').value) || 1;
-        if (!nome) {
-            mostrarNotificacao('Informe o nome da peça', 'erro');
-            return;
-        }
-        if (isNaN(val) || val <= 0) {
-            mostrarNotificacao('Valor inválido', 'erro');
-            return;
-        }
-        orcListaPecas.push({ nome, valor: val, quantidade: qtd });
-        orcRenderTabelaPecas();
-        document.getElementById('orcNomePeca').value = '';
-        document.getElementById('orcValorPeca').value = '';
-        document.getElementById('orcQtdPeca').value = '1';
-    });
-}
-
-const maoDeObraInput = document.getElementById('orcMaoDeObra');
-if (maoDeObraInput) maoDeObraInput.addEventListener('input', () => orcAtualizarTotais());
-
-const gerarOrcamentoBtn = document.getElementById('orcBtnGerarOrcamento');
-if (gerarOrcamentoBtn) {
-    gerarOrcamentoBtn.addEventListener('click', () => {
-        const r = orcGerarHtmlOrcamento();
-        if (!r) return;
-        orcUltimoOrcamentoHtml = r.html;
-        const previewConteudo = document.getElementById('orcPreviewConteudo');
-        const previewArea = document.getElementById('orcPreviewOrcamento');
-        if (previewConteudo) previewConteudo.innerHTML = r.html;
-        if (previewArea) {
-            previewArea.style.display = 'block';
-            previewArea.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-}
-
-const imprimirOrcamentoBtn = document.getElementById('orcBtnImprimirPDF');
-if (imprimirOrcamentoBtn) {
-    imprimirOrcamentoBtn.addEventListener('click', () => {
-        const r = orcGerarHtmlOrcamento();
-        if (!r) return;
-        const w = window.open('', '_blank');
-        w.document.write(`<!DOCTYPE html><html><head><title>Orçamento ONS</title><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;padding:20px;background:white;}</style></head><body>${r.html}</body></html>`);
-        w.document.close();
-        setTimeout(() => w.print(), 800);
-    });
-}
-
-const whatsappOrcamentoBtn = document.getElementById('orcBtnWhatsApp');
-if (whatsappOrcamentoBtn) {
-    whatsappOrcamentoBtn.addEventListener('click', () => {
-        const tel = document.getElementById('orcClienteTelefone').value.replace(/\D/g, '');
-        if (!tel) {
-            mostrarNotificacao('Informe o telefone do cliente!', 'erro');
-            return;
-        }
-        const r = orcGerarHtmlOrcamento();
-        if (!r) return;
-        const msg = `Olá ${r.nomeCliente}, seu orçamento ONS está pronto!\nTotal: ${formatMoney(r.totalGeral)}\nQualquer dúvida: (35) 9 2000-4813`;
-        window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(msg)}`, '_blank');
-    });
-}
-
-document.querySelectorAll('input[name="orcTipoServico"]').forEach(r => {
-    r.addEventListener('change', e => {
-        orcCurrentServiceType = e.target.value;
-        orcRenderizarCamposDinamicos();
-    });
-});
+const telefoneInput = document.getElementById('orcClienteTelefone'); if (telefoneInput) { telefoneInput.addEventListener('input', function(e) { e.target.value = orcMascaraTelefone(e.target.value); }); }
+const addPecaBtn = document.getElementById('orcBtnAdicionarPeca'); if (addPecaBtn) { addPecaBtn.addEventListener('click', () => { const nome = document.getElementById('orcNomePeca').value.trim(); const val = parseMoneyToFloat(document.getElementById('orcValorPeca').value); const qtd = parseInt(document.getElementById('orcQtdPeca').value) || 1; if (!nome) { mostrarNotificacao('Informe o nome da peça', 'erro'); return; } if (isNaN(val) || val <= 0) { mostrarNotificacao('Valor inválido', 'erro'); return; } orcListaPecas.push({ nome, valor: val, quantidade: qtd }); orcRenderTabelaPecas(); document.getElementById('orcNomePeca').value = ''; document.getElementById('orcValorPeca').value = ''; document.getElementById('orcQtdPeca').value = '1'; }); }
+const maoDeObraInput = document.getElementById('orcMaoDeObra'); if (maoDeObraInput) maoDeObraInput.addEventListener('input', () => orcAtualizarTotais());
+const gerarOrcamentoBtn = document.getElementById('orcBtnGerarOrcamento'); if (gerarOrcamentoBtn) { gerarOrcamentoBtn.addEventListener('click', () => { const r = orcGerarHtmlOrcamento(); if (!r) return; orcUltimoOrcamentoHtml = r.html; const previewConteudo = document.getElementById('orcPreviewConteudo'); const previewArea = document.getElementById('orcPreviewOrcamento'); if (previewConteudo) previewConteudo.innerHTML = r.html; if (previewArea) { previewArea.style.display = 'block'; previewArea.scrollIntoView({ behavior: 'smooth' }); } }); }
+const imprimirOrcamentoBtn = document.getElementById('orcBtnImprimirPDF'); if (imprimirOrcamentoBtn) { imprimirOrcamentoBtn.addEventListener('click', () => { const r = orcGerarHtmlOrcamento(); if (!r) return; const w = window.open('', '_blank'); w.document.write(`<!DOCTYPE html><html><head><title>Orçamento ONS</title><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;padding:20px;background:white;}</style></head><body>${r.html}</body></html>`); w.document.close(); setTimeout(() => w.print(), 800); }); }
+const whatsappOrcamentoBtn = document.getElementById('orcBtnWhatsApp'); if (whatsappOrcamentoBtn) { whatsappOrcamentoBtn.addEventListener('click', () => { const tel = document.getElementById('orcClienteTelefone').value.replace(/\D/g, ''); if (!tel) { mostrarNotificacao('Informe o telefone do cliente!', 'erro'); return; } const r = orcGerarHtmlOrcamento(); if (!r) return; const msg = `Olá ${r.nomeCliente}, seu orçamento ONS está pronto!\nTotal: ${formatMoney(r.totalGeral)}\nQualquer dúvida: (35) 9 2000-4813`; window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(msg)}`, '_blank'); }); }
+document.querySelectorAll('input[name="orcTipoServico"]').forEach(r => { r.addEventListener('change', e => { orcCurrentServiceType = e.target.value; orcRenderizarCamposDinamicos(); }); });
 
 // ==================== EVENTOS FATURAMENTO ====================
-['valor-hora', 'horas-trabalhadas', 'pix-chave', 'obs-pagamento', 'num-documento'].forEach(id => {
-    const e = document.getElementById(id);
-    if (e) e.addEventListener('input', () => atualizarDocumentoFatura());
-});
-
-document.querySelectorAll('input[name="forma-exibicao"], input[name="pagamento-tipo"]').forEach(r => {
-    r.addEventListener('change', () => {
-        togglePixCampo();
-        atualizarDocumentoFatura();
-    });
-});
+['valor-hora', 'horas-trabalhadas', 'pix-chave', 'obs-pagamento', 'num-documento'].forEach(id => { const e = document.getElementById(id); if (e) e.addEventListener('input', () => atualizarDocumentoFatura()); });
+document.querySelectorAll('input[name="forma-exibicao"], input[name="pagamento-tipo"]').forEach(r => { r.addEventListener('change', () => { togglePixCampo(); atualizarDocumentoFatura(); }); });
 
 // ==================== MÓDULO DE LAUDOS ====================
-function laudoGerarNumero() {
-    const ano = new Date().getFullYear();
-    const seq = laudosSalvos.filter(l => l.numero && l.numero.includes(`-${ano}-`)).length + 1;
-    return `ONS-${ano}-${seq.toString().padStart(4, '0')}`;
-}
-
-function laudoInicializar() {
-    const numInput = document.getElementById('laudo-numero');
-    const dataInput = document.getElementById('laudo-data');
-    if (numInput) numInput.value = laudoGerarNumero();
-    if (dataInput) dataInput.value = new Date().toLocaleDateString('pt-BR');
-    laudoPopularSelectCliente();
-}
-
-function laudoPopularSelectCliente() {
-    const sel = document.getElementById('laudo-select-cliente');
-    if (!sel) return;
-    const val = sel.value;
-    sel.innerHTML = '<option value="">— Selecione um cliente cadastrado ou preencha manualmente —</option>';
-    clientes.forEach(c => {
-        sel.innerHTML += `<option value="${c.id}">${c.nome} — ${c.telefone}</option>`;
-    });
-    if (val) sel.value = val;
-}
-
-function laudoPreencherCliente() {
-    const id = parseInt(document.getElementById('laudo-select-cliente').value);
-    const grp = document.getElementById('laudo-equip-cliente-group');
-    if (!id) {
-        if (grp) grp.style.display = 'none';
-        return;
-    }
-    const cl = clientes.find(c => c.id === id);
-    if (!cl) return;
-    document.getElementById('laudo-cliente-nome').value = cl.nome || '';
-    document.getElementById('laudo-cliente-telefone').value = cl.telefone || '';
-    document.getElementById('laudo-cliente-email').value = cl.email || '';
-    document.getElementById('laudo-cliente-endereco').value = cl.endereco || '';
-    document.getElementById('laudo-cliente-documento').value = '';
-    
-    const selEquip = document.getElementById('laudo-select-equipamento-cliente');
-    if (selEquip) {
-        selEquip.innerHTML = '<option value="">— Selecione um equipamento cadastrado ou preencha manualmente —</option>';
-        if (cl.equipamentos && cl.equipamentos.length > 0) {
-            cl.equipamentos.forEach((eq, i) => {
-                selEquip.innerHTML += `<option value="${i}">${eq.nome}${eq.modelo ? ' — ' + eq.modelo : ''}${eq.numeroSerie ? ' (Série: ' + eq.numeroSerie + ')' : ''}</option>`;
-            });
-            if (grp) grp.style.display = 'block';
-        } else {
-            if (grp) grp.style.display = 'none';
-        }
-    }
-    mostrarNotificacao(`Cliente ${cl.nome} carregado!`, 'info');
-}
-
-function laudoPreencherEquipamento() {
-    const clienteId = parseInt(document.getElementById('laudo-select-cliente').value);
-    const idx = parseInt(document.getElementById('laudo-select-equipamento-cliente').value);
-    if (isNaN(clienteId) || isNaN(idx)) return;
-    const cl = clientes.find(c => c.id === clienteId);
-    if (!cl || !cl.equipamentos || !cl.equipamentos[idx]) return;
-    const eq = cl.equipamentos[idx];
-    document.getElementById('laudo-fabricante').value = eq.fabricante || '';
-    document.getElementById('laudo-modelo').value = eq.modelo || '';
-    document.getElementById('laudo-serie').value = eq.numeroSerie || '';
-    
-    const mapa = { 'Autoclave': 'autoclave', 'Compressor': 'compressor', 'Cadeira Odontológica': 'cadeira', 'Raio-X': 'raio-x', 'Caneta Alta Rotação': 'caneta', 'Ultrassom': 'ultrassom', 'Fotopolimerizadora': 'fotopolimerizador', 'Motor Elétrico': '', 'Bomba de Vácuo': 'bomba-vacuo' };
-    const tipoMapeado = mapa[eq.nome] || '';
-    if (tipoMapeado) {
-        document.getElementById('laudo-tipo-equipamento').value = tipoMapeado;
-        laudoCarregarChecklist();
-    }
-    mostrarNotificacao(`Equipamento ${eq.nome} carregado!`, 'info');
-}
-
-function laudoRenderizarChecklist(itens) {
-    const metade = Math.ceil(itens.length / 2);
-    const col1 = itens.slice(0, metade);
-    const col2 = itens.slice(metade);
-    const renderCol = (col, offset) => col.map((item, i) => {
-        const idx = i + offset;
-        return `<div class="checklist-item">
-            <div class="item-texto">${idx + 1}. ${item}</div>
-            <select id="lcheck-${idx}">
-                <option value="CONFORME">✓ CONFORME</option>
-                <option value="NAO_CONFORME">✗ NÃO CONFORME</option>
-            </select>
-        </div>`;
-    }).join('');
-    
-    return `<div class="checklist-duas-colunas">
-        <div class="checklist-coluna">${renderCol(col1, 0)}</div>
-        <div class="checklist-coluna">${renderCol(col2, metade)}</div>
-    </div>
-    <div class="checklist-obs">
-        <label><i class="fas fa-comment"></i> Observações do Checklist:</label>
-        <textarea id="laudo-obs-checklist" rows="2" placeholder="Registre observações sobre itens não conformes..."></textarea>
-    </div>`;
-}
-
-function laudoCarregarChecklist() {
-    const tipo = document.getElementById('laudo-tipo-equipamento').value;
-    const box = document.getElementById('laudo-checklist-dinamico');
-    if (!box) return;
-    if (!tipo) {
-        box.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Selecione um tipo de equipamento acima</p>';
-        return;
-    }
-    const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo];
-    if (!data) {
-        box.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Checklist não encontrado</p>';
-        return;
-    }
-    box.innerHTML = laudoRenderizarChecklist(data.checklist);
-    if (data.analise) document.getElementById('laudo-analise').value = data.analise;
-    if (data.parecer) document.getElementById('laudo-parecer').value = data.parecer;
-}
-
-function laudoGetChecklistData() {
-    const tipo = document.getElementById('laudo-tipo-equipamento').value;
-    if (!tipo) return [];
-    const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo];
-    if (!data) return [];
-    const obs = document.getElementById('laudo-obs-checklist')?.value || '';
-    const itens = data.checklist.map((item, idx) => ({
-        item: item,
-        status: document.getElementById(`lcheck-${idx}`)?.value === 'CONFORME',
-        statusTexto: document.getElementById(`lcheck-${idx}`)?.value || 'CONFORME'
-    }));
-    itens.observacoesGerais = obs;
-    return itens;
-}
-
-function laudoObterDados() {
-    const checklist = laudoGetChecklistData();
-    const aprovados = checklist.filter(c => c.status).length;
-    const total = checklist.length;
-    const tipoSel = document.getElementById('laudo-tipo-equipamento');
-    const tipoTexto = tipoSel.options[tipoSel.selectedIndex]?.text || '';
-    return {
-        id: Date.now(),
-        numero: document.getElementById('laudo-numero').value,
-        data: document.getElementById('laudo-data').value,
-        clienteId: parseInt(document.getElementById('laudo-select-cliente').value) || null,
-        cliente: {
-            nome: document.getElementById('laudo-cliente-nome').value,
-            telefone: document.getElementById('laudo-cliente-telefone').value,
-            email: document.getElementById('laudo-cliente-email').value,
-            documento: document.getElementById('laudo-cliente-documento').value,
-            endereco: document.getElementById('laudo-cliente-endereco').value
-        },
-        equipamento: {
-            tipo: tipoTexto.replace(/^[^\w]+/, '').trim(),
-            tipoKey: document.getElementById('laudo-tipo-equipamento').value,
-            fabricante: document.getElementById('laudo-fabricante').value,
-            modelo: document.getElementById('laudo-modelo').value,
-            serie: document.getElementById('laudo-serie').value,
-            ano: document.getElementById('laudo-ano').value
-        },
-        checklist: checklist,
-        analise: document.getElementById('laudo-analise').value,
-        parecer: document.getElementById('laudo-parecer').value,
-        recomendacoes: document.getElementById('laudo-recomendacoes').value,
-        aprovados: aprovados,
-        total: total,
-        status: document.querySelector('input[name="laudo-status"]:checked')?.value || 'PENDENTE'
-    };
-}
-
-function laudoValidar() {
-    if (!document.getElementById('laudo-cliente-nome').value.trim()) {
-        mostrarNotificacao('Informe o nome do cliente!', 'erro');
-        return false;
-    }
-    if (!document.getElementById('laudo-cliente-telefone').value.trim()) {
-        mostrarNotificacao('Informe o telefone!', 'erro');
-        return false;
-    }
-    if (!document.getElementById('laudo-tipo-equipamento').value) {
-        mostrarNotificacao('Selecione o tipo de equipamento!', 'erro');
-        return false;
-    }
-    return true;
-}
-
-function laudoGerarHTML(laudo) {
-    let stBg = '#e9ecef', stCor = '#6c757d', stTxt = 'PENDENTE';
-    if (laudo.status === 'APROVADO') {
-        stBg = '#d4edda';
-        stCor = '#155724';
-        stTxt = 'APROVADO';
-    } else if (laudo.status === 'APROVADO_COM_RESSALVAS') {
-        stBg = '#fff3cd';
-        stCor = '#856404';
-        stTxt = 'APROVADO COM RESSALVAS';
-    } else if (laudo.status === 'REPROVADO') {
-        stBg = '#f8d7da';
-        stCor = '#721c24';
-        stTxt = 'REPROVADO';
-    }
-
-    const metade = Math.ceil(laudo.checklist.length / 2);
-    const col1 = laudo.checklist.slice(0, metade);
-    const col2 = laudo.checklist.slice(metade);
-    const renderCheckItem = item => `<div style="margin-bottom:6px; padding:3px 0; border-bottom:1px solid #eee; display:flex; align-items:center; gap:8px;">
-        <span style="display:inline-block; background:${item.status ? '#1a9e5c' : '#d63b3b'}; color:white; padding:2px 8px; border-radius:3px; font-size:8px; font-weight:700; min-width:70px; text-align:center;">${item.status ? 'CONFORME' : 'NÃO CONF.'}</span>
-        <span style="font-size:9px;">${item.item}</span>
-    </div>`;
-
-    return `<div style="font-family:'Inter','Segoe UI',Arial,sans-serif; max-width:680px; margin:0 auto; background:white;">
-        <div style="background:#0a246a; color:white; padding:18px 24px; display:flex; justify-content:space-between; align-items:flex-start;">
-            <div>
-                <div style="font-size:17pt; font-weight:800; letter-spacing:1px; font-family:'Barlow Condensed','Inter',sans-serif;">ONS ODONTOTÉCNICA</div>
-                <div style="font-size:8pt; opacity:0.75; margin-top:2px;">Manutenção de Equipamentos Odontológicos</div>
-                <div style="font-size:7pt; opacity:0.6;">CNPJ: 66.326.736/0001-62 &nbsp;|&nbsp; (35) 9 2000-4813 &nbsp;|&nbsp; São Sebastião do Paraíso - MG</div>
-            </div>
-            <div style="text-align:right; font-size:8pt; opacity:0.75;">
-                <div>${laudo.data}</div>
-                <div style="font-weight:800; font-size:10pt; color:#f0b429; margin-top:4px;">${laudo.numero}</div>
-            </div>
-        </div>
-        <div style="background:#f0b429; color:#0a246a; padding:8px 24px; font-weight:800; font-size:11pt; letter-spacing:2px; text-align:center;">LAUDO TÉCNICO</div>
-        <div style="background:#f8fafc; padding:8px 24px; display:flex; justify-content:space-between; align-items:center; font-size:9pt; border-bottom:1px solid #e2e8f0;">
-            <span><strong>Data:</strong> ${laudo.data}</span>
-            <span style="background:${stBg}; color:${stCor}; padding:3px 12px; border-radius:20px; font-weight:700; font-size:8pt;">${stTxt}</span>
-        </div>
-        <div style="padding:16px 24px;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
-                <div style="background:#f0f4f8; padding:12px 14px; border-radius:8px;">
-                    <div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:7px; border-left:3px solid #2d5be3; padding-left:7px;">CLIENTE</div>
-                    <p style="font-size:9.5pt; margin:2px 0;"><strong>Nome:</strong> ${laudo.cliente.nome}</p>
-                    <p style="font-size:9.5pt; margin:2px 0;"><strong>Telefone:</strong> ${laudo.cliente.telefone}</p>
-                    ${laudo.cliente.documento ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>CNPJ/CPF:</strong> ${laudo.cliente.documento}</p>` : ''}
-                    ${laudo.cliente.endereco ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Endereço:</strong> ${laudo.cliente.endereco}</p>` : ''}
-                </div>
-                <div style="background:#f0f4f8; padding:12px 14px; border-radius:8px;">
-                    <div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:7px; border-left:3px solid #2d5be3; padding-left:7px;">EQUIPAMENTO</div>
-                    <p style="font-size:9.5pt; margin:2px 0;"><strong>Tipo:</strong> ${laudo.equipamento.tipo}</p>
-                    <p style="font-size:9.5pt; margin:2px 0;"><strong>Fabricante:</strong> ${laudo.equipamento.fabricante || '—'}</p>
-                    ${laudo.equipamento.modelo ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Modelo:</strong> ${laudo.equipamento.modelo}</p>` : ''}
-                    ${laudo.equipamento.serie ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Série:</strong> ${laudo.equipamento.serie}</p>` : ''}
-                    ${laudo.equipamento.ano ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Ano:</strong> ${laudo.equipamento.ano}</p>` : ''}
-                </div>
-            </div>
-            <div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:8px; border-left:3px solid #2d5be3; padding-left:7px;">CHECKLIST TÉCNICO</div>
-            <div style="display:flex; gap:14px; width:100%; margin-bottom:8px;">
-                <div style="flex:1;">${col1.map(renderCheckItem).join('')}</div>
-                <div style="flex:1;">${col2.map(renderCheckItem).join('')}</div>
-            </div>
-            ${laudo.checklist.observacoesGerais ? `<div style="background:#fef7e0; border:1.5px solid #f0b429; border-radius:6px; padding:8px 12px; font-size:9pt; margin-bottom:10px;"><strong>📝 Obs.:</strong> ${laudo.checklist.observacoesGerais}</div>` : ''}
-            <div style="text-align:right; font-size:8pt; color:#555; margin-bottom:12px;">📊 ${laudo.aprovados}/${laudo.total} itens conformes</div>
-            <div style="margin-bottom:10px;">
-                <div style="background:#0a246a; color:white; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">📝 ANÁLISE TÉCNICA</div>
-                <div style="border:1px solid #e2e8f0; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.analise || 'Não informado'}</div>
-            </div>
-            <div style="margin-bottom:10px;">
-                <div style="background:#0a246a; color:white; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">🏛 PARECER TÉCNICO</div>
-                <div style="border:1px solid #e2e8f0; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.parecer || 'Não informado'}</div>
-            </div>
-            ${laudo.recomendacoes ? `<div style="margin-bottom:10px;">
-                <div style="background:#f0b429; color:#0a246a; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">💡 RECOMENDAÇÕES</div>
-                <div style="border:1px solid #f0b429; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.recomendacoes}</div>
-            </div>` : ''}
-            <div style="display:flex; justify-content:space-around; text-align:center; margin-top:28px; font-size:8.5pt; color:#666;">
-                <div><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Responsável Técnico</div></div>
-                <div><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Cliente</div></div>
-            </div>
-            <div style="text-align:center; font-size:7pt; color:#aaa; border-top:1px dashed #ddd; padding-top:10px; margin-top:16px;">ONS Odontotécnica — Laudo Técnico — Documento eletrônico gerado em ${laudo.data}</div>
-        </div>
-    </div>`;
-}
-
-function laudoGerarHTMLImpressao(laudo) {
-    return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Laudo ${laudo.numero}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>body{margin:0;padding:16px;background:white;} @media print{body{padding:0;}}</style>
-    </head><body>${laudoGerarHTML(laudo)}</body></html>`;
-}
-
-function laudoGerarVisualizar() {
-    if (!laudoValidar()) return;
-    const laudo = laudoObterDados();
-    const preview = document.getElementById('preview-laudo');
-    const previewConteudo = document.getElementById('laudo-documento-preview');
-    if (previewConteudo) previewConteudo.innerHTML = laudoGerarHTML(laudo);
-    if (preview) {
-        preview.style.display = 'block';
-        preview.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-function laudoImprimir() {
-    if (!laudoValidar()) return;
-    const laudo = laudoObterDados();
-    const w = window.open('', '_blank');
-    w.document.write(laudoGerarHTMLImpressao(laudo));
-    w.document.close();
-    setTimeout(() => w.print(), 800);
-}
-
-function laudoBaixarPDF() {
-    if (!laudoValidar()) return;
-    mostrarNotificacao('Gerando PDF...', 'info');
-    const laudo = laudoObterDados();
-    const tmp = document.createElement('div');
-    tmp.innerHTML = laudoGerarHTML(laudo);
-    tmp.style.cssText = 'position:absolute; left:-9999px; font-family:Inter,sans-serif;';
-    document.body.appendChild(tmp);
-    html2pdf().set({ margin: 5, filename: `Laudo_${laudo.numero}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } })
-        .from(tmp.firstElementChild).save().then(() => {
-            document.body.removeChild(tmp);
-            mostrarNotificacao('PDF baixado!');
-        });
-}
-
-function laudoEnviarWhatsApp() {
-    const tel = document.getElementById('laudo-cliente-telefone').value.replace(/\D/g, '');
-    const nome = document.getElementById('laudo-cliente-nome').value;
-    const num = document.getElementById('laudo-numero').value;
-    if (!tel) {
-        mostrarNotificacao('Informe o telefone!', 'erro');
-        return;
-    }
-    window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(`*ONS ODONTOTÉCNICA*\n\nOlá ${nome}, seu laudo técnico *${num}* foi gerado!\n\n📞 (35) 9 2000-4813`)}`, '_blank');
-}
-
-function laudoSalvar() {
-    if (!laudoValidar()) return;
-    const laudo = laudoObterDados();
-    laudosSalvos.unshift(laudo);
-    localStorage.setItem('ons_laudos_template', JSON.stringify(laudosSalvos));
-    mostrarNotificacao(`Laudo ${laudo.numero} salvo!`);
-    laudoLimpar();
-    laudoAtualizarDash();
-    laudoRenderHist();
-}
-
-function laudoLimpar() {
-    ['laudo-cliente-nome', 'laudo-cliente-telefone', 'laudo-cliente-email', 'laudo-cliente-documento', 'laudo-cliente-endereco', 'laudo-fabricante', 'laudo-modelo', 'laudo-serie', 'laudo-ano', 'laudo-analise', 'laudo-parecer', 'laudo-recomendacoes'].forEach(id => {
-        const e = document.getElementById(id);
-        if (e) e.value = '';
-    });
-    const selectCliente = document.getElementById('laudo-select-cliente');
-    if (selectCliente) selectCliente.value = '';
-    const selectEquip = document.getElementById('laudo-tipo-equipamento');
-    if (selectEquip) selectEquip.value = '';
-    const equipGroup = document.getElementById('laudo-equip-cliente-group');
-    if (equipGroup) equipGroup.style.display = 'none';
-    const checklistDiv = document.getElementById('laudo-checklist-dinamico');
-    if (checklistDiv) checklistDiv.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Selecione um tipo de equipamento acima para carregar o checklist</p>';
-    const preview = document.getElementById('preview-laudo');
-    if (preview) preview.style.display = 'none';
-    const pendenteRadio = document.querySelector('input[name="laudo-status"][value="PENDENTE"]');
-    if (pendenteRadio) pendenteRadio.checked = true;
-    const numInput = document.getElementById('laudo-numero');
-    const dataInput = document.getElementById('laudo-data');
-    if (numInput) numInput.value = laudoGerarNumero();
-    if (dataInput) dataInput.value = new Date().toLocaleDateString('pt-BR');
-}
-
-function laudoRenderHist(lista) {
-    const arr = lista || laudosSalvos;
-    const c = document.getElementById('laudo-lista-hist');
-    if (!c) return;
-    if (arr.length === 0) {
-        c.innerHTML = '<div class="lista-item"><p>Nenhum laudo registrado</p></div>';
-        return;
-    }
-    const badgeMap = { APROVADO: 'badge-aprovado', APROVADO_COM_RESSALVAS: 'badge-ressalvas', REPROVADO: 'badge-reprovado', PENDENTE: 'badge-pendente' };
-    const txtMap = { APROVADO: '✅ Aprovado', APROVADO_COM_RESSALVAS: '⚠️ Com Ressalvas', REPROVADO: '❌ Reprovado', PENDENTE: '⏳ Pendente' };
-    c.innerHTML = arr.map(l => `
-        <div class="laudo-hist-item" onclick="laudoVerDetalhes(${l.id})">
-            <div class="laudo-hist-info">
-                <h4>${l.numero} — ${l.cliente.nome}</h4>
-                <p>${l.equipamento.tipo} &nbsp;|&nbsp; ${l.data}</p>
-            </div>
-            <span class="badge ${badgeMap[l.status] || 'badge-pendente'}">${txtMap[l.status] || 'Pendente'}</span>
-        </div>
-    `).join('');
-}
-
-function laudoFiltrar() {
-    const t = document.getElementById('laudo-busca').value.toLowerCase();
-    const filtrados = laudosSalvos.filter(l => l.numero.toLowerCase().includes(t) || l.cliente.nome.toLowerCase().includes(t) || (l.equipamento.tipo || '').toLowerCase().includes(t));
-    laudoRenderHist(filtrados);
-}
-
-function laudoVerDetalhes(id) {
-    const l = laudosSalvos.find(x => x.id === id);
-    laudoIdAtual = id;
-    const txtMap = { APROVADO: '✅ Aprovado', APROVADO_COM_RESSALVAS: '⚠️ Aprovado com Ressalvas', REPROVADO: '❌ Reprovado', PENDENTE: '⏳ Pendente' };
-    const modalBody = document.getElementById('laudo-modal-body');
-    if (modalBody) {
-        modalBody.innerHTML = `
-            <div style="margin-bottom:12px;">${laudoGerarHTML(l)}</div>
-            <div style="padding:12px; background:var(--cinza-bg); border-radius:var(--radius); font-size:0.8rem;">
-                <strong>Checklist:</strong> ${l.aprovados}/${l.total} itens conformes &nbsp;|&nbsp;
-                <strong>Status:</strong> ${txtMap[l.status] || 'Pendente'}
-            </div>`;
-    }
-    document.getElementById('modalLaudo').classList.add('active');
-}
-
-function laudoReimprimir() {
-    const l = laudosSalvos.find(x => x.id === laudoIdAtual);
-    if (!l) return;
-    const w = window.open('', '_blank');
-    w.document.write(laudoGerarHTMLImpressao(l));
-    w.document.close();
-    setTimeout(() => w.print(), 800);
-}
-
-function laudoBaixarPDFSalvo() {
-    const l = laudosSalvos.find(x => x.id === laudoIdAtual);
-    if (!l) return;
-    mostrarNotificacao('Gerando PDF...', 'info');
-    const tmp = document.createElement('div');
-    tmp.innerHTML = laudoGerarHTML(l);
-    tmp.style.cssText = 'position:absolute; left:-9999px;';
-    document.body.appendChild(tmp);
-    html2pdf().set({ margin: 5, filename: `Laudo_${l.numero}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } })
-        .from(tmp.firstElementChild).save().then(() => {
-            document.body.removeChild(tmp);
-            mostrarNotificacao('PDF baixado!');
-        });
-}
-
-function laudoWhatsAppSalvo() {
-    const l = laudosSalvos.find(x => x.id === laudoIdAtual);
-    if (!l) return;
-    const tel = l.cliente.telefone.replace(/\D/g, '');
-    if (!tel) {
-        mostrarNotificacao('Telefone não encontrado!', 'erro');
-        return;
-    }
-    window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(`*ONS ODONTOTÉCNICA*\n\nOlá ${l.cliente.nome}, seu laudo técnico *${l.numero}* está disponível!\n\n📞 (35) 9 2000-4813`)}`, '_blank');
-}
-
-function laudoExcluirAtual() {
-    if (!confirm('Excluir este laudo?')) return;
-    laudosSalvos = laudosSalvos.filter(l => l.id !== laudoIdAtual);
-    localStorage.setItem('ons_laudos_template', JSON.stringify(laudosSalvos));
-    document.getElementById('modalLaudo').classList.remove('active');
-    laudoIdAtual = null;
-    mostrarNotificacao('Laudo excluído!');
-    laudoRenderHist();
-    laudoAtualizarDash();
-}
-
-function laudoAtualizarDash() {
-    const cards = document.getElementById('laudo-dash-cards');
-    const stats = document.getElementById('laudo-dash-stats');
-    if (!cards) return;
-    const ap = laudosSalvos.filter(l => l.status === 'APROVADO').length;
-    const ar = laudosSalvos.filter(l => l.status === 'APROVADO_COM_RESSALVAS').length;
-    const rp = laudosSalvos.filter(l => l.status === 'REPROVADO').length;
-    const pd = laudosSalvos.filter(l => l.status === 'PENDENTE').length;
-    const equips = new Set(laudosSalvos.map(l => l.equipamento.tipo));
-    const clis = new Set(laudosSalvos.map(l => l.cliente.nome));
-    
-    cards.innerHTML = `
-        <div class="card"><div class="card-icon"><i class="fas fa-file-alt"></i></div><h3>${laudosSalvos.length}</h3><p>Total Laudos</p></div>
-        <div class="card"><div class="card-icon green"><i class="fas fa-check-circle"></i></div><h3>${ap}</h3><p>Aprovados</p></div>
-        <div class="card"><div class="card-icon gold"><i class="fas fa-exclamation-triangle"></i></div><h3>${ar}</h3><p>C/ Ressalvas</p></div>
-        <div class="card"><div class="card-icon red"><i class="fas fa-times-circle"></i></div><h3>${rp}</h3><p>Reprovados</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>${pd}</h3><p>Pendentes</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-microscope"></i></div><h3>${equips.size}</h3><p>Tipos Equip.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-users"></i></div><h3>${clis.size}</h3><p>Clientes</p></div>`;
-    
-    if (stats) {
-        const total = laudosSalvos.length || 1;
-        if (laudosSalvos.length === 0) {
-            stats.innerHTML = '<p style="color:var(--cinza-texto); font-size:0.8rem;">Nenhum laudo registrado ainda.</p>';
-        } else {
-            stats.innerHTML = `<div class="lista">
-                ${[
-                    ['APROVADO', '✅ Aprovados', ap, 'badge-aprovado'],
-                    ['APROVADO_COM_RESSALVAS', '⚠️ Aprovados c/ Ressalvas', ar, 'badge-ressalvas'],
-                    ['REPROVADO', '❌ Reprovados', rp, 'badge-reprovado'],
-                    ['PENDENTE', '⏳ Pendentes', pd, 'badge-pendente']
-                ].map(([_, txt, n, cls]) => `<div class="lista-item">
-                    <span>${txt}</span>
-                    <div style="display:flex; align-items:center; gap:12px;">
-                        <span class="badge ${cls}">${n}</span>
-                        <span style="font-size:0.72rem; color:var(--cinza-texto);">${((n / total) * 100).toFixed(0)}%</span>
-                    </div>
-                </div>`).join('')}
-            </div>`;
-        }
-    }
-}
-
-function laudoMostrarAba(aba) {
-    document.querySelectorAll('.laudo-aba').forEach(a => a.style.display = 'none');
-    const abaDiv = document.getElementById(aba);
-    if (abaDiv) abaDiv.style.display = 'block';
-    
-    const mapBtn = {
-        'laudo-novo': 'laudo-btn-novo',
-        'laudo-hist': 'laudo-btn-hist',
-        'laudo-gerenciar': 'laudo-btn-gerenciar',
-        'laudo-config': 'laudo-btn-config',
-        'laudo-dash': 'laudo-btn-dash'
-    };
-    
-    Object.values(mapBtn).forEach(b => {
-        const el = document.getElementById(b);
-        if (el) el.className = 'btn btn-outline';
-    });
-    
-    const activeBtn = mapBtn[aba];
-    if (activeBtn) {
-        const el = document.getElementById(activeBtn);
-        if (el) el.className = 'btn btn-primary';
-    }
-    
-    if (aba === 'laudo-hist') laudoRenderHist();
-    if (aba === 'laudo-dash') laudoAtualizarDash();
-    if (aba === 'laudo-novo') laudoInicializar();
-}
+function laudoGerarNumero() { const ano = new Date().getFullYear(); const seq = laudosSalvos.filter(l => l.numero && l.numero.includes(`-${ano}-`)).length + 1; return `ONS-${ano}-${seq.toString().padStart(4, '0')}`; }
+function laudoInicializar() { const numInput = document.getElementById('laudo-numero'); const dataInput = document.getElementById('laudo-data'); if (numInput) numInput.value = laudoGerarNumero(); if (dataInput) dataInput.value = new Date().toLocaleDateString('pt-BR'); laudoPopularSelectCliente(); }
+function laudoPopularSelectCliente() { const sel = document.getElementById('laudo-select-cliente'); if (!sel) return; const val = sel.value; sel.innerHTML = '<option value="">— Selecione um cliente cadastrado ou preencha manualmente —</option>'; clientes.forEach(c => { sel.innerHTML += `<option value="${c.id}">${c.nome} — ${c.telefone}</option>`; }); if (val) sel.value = val; }
+function laudoPreencherCliente() { const id = parseInt(document.getElementById('laudo-select-cliente').value); const grp = document.getElementById('laudo-equip-cliente-group'); if (!id) { if (grp) grp.style.display = 'none'; return; } const cl = clientes.find(c => c.id === id); if (!cl) return; document.getElementById('laudo-cliente-nome').value = cl.nome || ''; document.getElementById('laudo-cliente-telefone').value = cl.telefone || ''; document.getElementById('laudo-cliente-email').value = cl.email || ''; document.getElementById('laudo-cliente-endereco').value = cl.endereco || ''; document.getElementById('laudo-cliente-documento').value = ''; const selEquip = document.getElementById('laudo-select-equipamento-cliente'); if (selEquip) { selEquip.innerHTML = '<option value="">— Selecione um equipamento cadastrado ou preencha manualmente —</option>'; if (cl.equipamentos && cl.equipamentos.length > 0) { cl.equipamentos.forEach((eq, i) => { selEquip.innerHTML += `<option value="${i}">${eq.nome}${eq.modelo ? ' — ' + eq.modelo : ''}${eq.numeroSerie ? ' (Série: ' + eq.numeroSerie + ')' : ''}</option>`; }); if (grp) grp.style.display = 'block'; } else { if (grp) grp.style.display = 'none'; } } mostrarNotificacao(`Cliente ${cl.nome} carregado!`, 'info'); }
+function laudoPreencherEquipamento() { const clienteId = parseInt(document.getElementById('laudo-select-cliente').value); const idx = parseInt(document.getElementById('laudo-select-equipamento-cliente').value); if (isNaN(clienteId) || isNaN(idx)) return; const cl = clientes.find(c => c.id === clienteId); if (!cl || !cl.equipamentos || !cl.equipamentos[idx]) return; const eq = cl.equipamentos[idx]; document.getElementById('laudo-fabricante').value = eq.fabricante || ''; document.getElementById('laudo-modelo').value = eq.modelo || ''; document.getElementById('laudo-serie').value = eq.numeroSerie || ''; const mapa = { 'Autoclave': 'autoclave', 'Compressor': 'compressor', 'Cadeira Odontológica': 'cadeira', 'Raio-X': 'raio-x', 'Caneta Alta Rotação': 'caneta', 'Ultrassom': 'ultrassom', 'Fotopolimerizadora': 'fotopolimerizador', 'Motor Elétrico': '', 'Bomba de Vácuo': 'bomba-vacuo' }; const tipoMapeado = mapa[eq.nome] || ''; if (tipoMapeado) { document.getElementById('laudo-tipo-equipamento').value = tipoMapeado; laudoCarregarChecklist(); } mostrarNotificacao(`Equipamento ${eq.nome} carregado!`, 'info'); }
+function laudoRenderizarChecklist(itens) { const metade = Math.ceil(itens.length / 2); const col1 = itens.slice(0, metade); const col2 = itens.slice(metade); const renderCol = (col, offset) => col.map((item, i) => { const idx = i + offset; return `<div class="checklist-item"><div class="item-texto">${idx + 1}. ${item}</div><select id="lcheck-${idx}"><option value="CONFORME">✓ CONFORME</option><option value="NAO_CONFORME">✗ NÃO CONFORME</option></select></div>`; }).join(''); return `<div class="checklist-duas-colunas"><div class="checklist-coluna">${renderCol(col1, 0)}</div><div class="checklist-coluna">${renderCol(col2, metade)}</div></div><div class="checklist-obs"><label><i class="fas fa-comment"></i> Observações do Checklist:</label><textarea id="laudo-obs-checklist" rows="2" placeholder="Registre observações sobre itens não conformes..."></textarea></div>`; }
+function laudoCarregarChecklist() { const tipo = document.getElementById('laudo-tipo-equipamento').value; const box = document.getElementById('laudo-checklist-dinamico'); if (!box) return; if (!tipo) { box.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Selecione um tipo de equipamento acima</p>'; return; } const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo]; if (!data) { box.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Checklist não encontrado</p>'; return; } box.innerHTML = laudoRenderizarChecklist(data.checklist); if (data.analise) document.getElementById('laudo-analise').value = data.analise; if (data.parecer) document.getElementById('laudo-parecer').value = data.parecer; }
+function laudoGetChecklistData() { const tipo = document.getElementById('laudo-tipo-equipamento').value; if (!tipo) return []; const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo]; if (!data) return []; const obs = document.getElementById('laudo-obs-checklist')?.value || ''; const itens = data.checklist.map((item, idx) => ({ item: item, status: document.getElementById(`lcheck-${idx}`)?.value === 'CONFORME', statusTexto: document.getElementById(`lcheck-${idx}`)?.value || 'CONFORME' })); itens.observacoesGerais = obs; return itens; }
+function laudoObterDados() { const checklist = laudoGetChecklistData(); const aprovados = checklist.filter(c => c.status).length; const total = checklist.length; const tipoSel = document.getElementById('laudo-tipo-equipamento'); const tipoTexto = tipoSel.options[tipoSel.selectedIndex]?.text || ''; return { id: Date.now(), numero: document.getElementById('laudo-numero').value, data: document.getElementById('laudo-data').value, clienteId: parseInt(document.getElementById('laudo-select-cliente').value) || null, cliente: { nome: document.getElementById('laudo-cliente-nome').value, telefone: document.getElementById('laudo-cliente-telefone').value, email: document.getElementById('laudo-cliente-email').value, documento: document.getElementById('laudo-cliente-documento').value, endereco: document.getElementById('laudo-cliente-endereco').value }, equipamento: { tipo: tipoTexto.replace(/^[^\w]+/, '').trim(), tipoKey: document.getElementById('laudo-tipo-equipamento').value, fabricante: document.getElementById('laudo-fabricante').value, modelo: document.getElementById('laudo-modelo').value, serie: document.getElementById('laudo-serie').value, ano: document.getElementById('laudo-ano').value }, checklist: checklist, analise: document.getElementById('laudo-analise').value, parecer: document.getElementById('laudo-parecer').value, recomendacoes: document.getElementById('laudo-recomendacoes').value, aprovados: aprovados, total: total, status: document.querySelector('input[name="laudo-status"]:checked')?.value || 'PENDENTE' }; }
+function laudoValidar() { if (!document.getElementById('laudo-cliente-nome').value.trim()) { mostrarNotificacao('Informe o nome do cliente!', 'erro'); return false; } if (!document.getElementById('laudo-cliente-telefone').value.trim()) { mostrarNotificacao('Informe o telefone!', 'erro'); return false; } if (!document.getElementById('laudo-tipo-equipamento').value) { mostrarNotificacao('Selecione o tipo de equipamento!', 'erro'); return false; } return true; }
+function laudoGerarHTML(laudo) { let stBg = '#e9ecef', stCor = '#6c757d', stTxt = 'PENDENTE'; if (laudo.status === 'APROVADO') { stBg = '#d4edda'; stCor = '#155724'; stTxt = 'APROVADO'; } else if (laudo.status === 'APROVADO_COM_RESSALVAS') { stBg = '#fff3cd'; stCor = '#856404'; stTxt = 'APROVADO COM RESSALVAS'; } else if (laudo.status === 'REPROVADO') { stBg = '#f8d7da'; stCor = '#721c24'; stTxt = 'REPROVADO'; } const metade = Math.ceil(laudo.checklist.length / 2); const col1 = laudo.checklist.slice(0, metade); const col2 = laudo.checklist.slice(metade); const renderCheckItem = item => `<div style="margin-bottom:6px; padding:3px 0; border-bottom:1px solid #eee; display:flex; align-items:center; gap:8px;"><span style="display:inline-block; background:${item.status ? '#1a9e5c' : '#d63b3b'}; color:white; padding:2px 8px; border-radius:3px; font-size:8px; font-weight:700; min-width:70px; text-align:center;">${item.status ? 'CONFORME' : 'NÃO CONF.'}</span><span style="font-size:9px;">${item.item}</span></div>`; return `<div style="font-family:'Inter','Segoe UI',Arial,sans-serif; max-width:680px; margin:0 auto; background:white;"><div style="background:#0a246a; color:white; padding:18px 24px; display:flex; justify-content:space-between; align-items:flex-start;"><div><div style="font-size:17pt; font-weight:800; letter-spacing:1px; font-family:'Barlow Condensed','Inter',sans-serif;">ONS ODONTOTÉCNICA</div><div style="font-size:8pt; opacity:0.75; margin-top:2px;">Manutenção de Equipamentos Odontológicos</div><div style="font-size:7pt; opacity:0.6;">CNPJ: 66.326.736/0001-62 &nbsp;|&nbsp; (35) 9 2000-4813 &nbsp;|&nbsp; São Sebastião do Paraíso - MG</div></div><div style="text-align:right; font-size:8pt; opacity:0.75;"><div>${laudo.data}</div><div style="font-weight:800; font-size:10pt; color:#f0b429; margin-top:4px;">${laudo.numero}</div></div></div><div style="background:#f0b429; color:#0a246a; padding:8px 24px; font-weight:800; font-size:11pt; letter-spacing:2px; text-align:center;">LAUDO TÉCNICO</div><div style="background:#f8fafc; padding:8px 24px; display:flex; justify-content:space-between; align-items:center; font-size:9pt; border-bottom:1px solid #e2e8f0;"><span><strong>Data:</strong> ${laudo.data}</span><span style="background:${stBg}; color:${stCor}; padding:3px 12px; border-radius:20px; font-weight:700; font-size:8pt;">${stTxt}</span></div><div style="padding:16px 24px;"><div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;"><div style="background:#f0f4f8; padding:12px 14px; border-radius:8px;"><div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:7px; border-left:3px solid #2d5be3; padding-left:7px;">CLIENTE</div><p style="font-size:9.5pt; margin:2px 0;"><strong>Nome:</strong> ${laudo.cliente.nome}</p><p style="font-size:9.5pt; margin:2px 0;"><strong>Telefone:</strong> ${laudo.cliente.telefone}</p>${laudo.cliente.documento ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>CNPJ/CPF:</strong> ${laudo.cliente.documento}</p>` : ''}${laudo.cliente.endereco ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Endereço:</strong> ${laudo.cliente.endereco}</p>` : ''}</div><div style="background:#f0f4f8; padding:12px 14px; border-radius:8px;"><div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:7px; border-left:3px solid #2d5be3; padding-left:7px;">EQUIPAMENTO</div><p style="font-size:9.5pt; margin:2px 0;"><strong>Tipo:</strong> ${laudo.equipamento.tipo}</p><p style="font-size:9.5pt; margin:2px 0;"><strong>Fabricante:</strong> ${laudo.equipamento.fabricante || '—'}</p>${laudo.equipamento.modelo ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Modelo:</strong> ${laudo.equipamento.modelo}</p>` : ''}${laudo.equipamento.serie ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Série:</strong> ${laudo.equipamento.serie}</p>` : ''}${laudo.equipamento.ano ? `<p style="font-size:9.5pt; margin:2px 0;"><strong>Ano:</strong> ${laudo.equipamento.ano}</p>` : ''}</div></div><div style="font-size:7pt; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#0a246a; margin-bottom:8px; border-left:3px solid #2d5be3; padding-left:7px;">CHECKLIST TÉCNICO</div><div style="display:flex; gap:14px; width:100%; margin-bottom:8px;"><div style="flex:1;">${col1.map(renderCheckItem).join('')}</div><div style="flex:1;">${col2.map(renderCheckItem).join('')}</div></div>${laudo.checklist.observacoesGerais ? `<div style="background:#fef7e0; border:1.5px solid #f0b429; border-radius:6px; padding:8px 12px; font-size:9pt; margin-bottom:10px;"><strong>📝 Obs.:</strong> ${laudo.checklist.observacoesGerais}</div>` : ''}<div style="text-align:right; font-size:8pt; color:#555; margin-bottom:12px;">📊 ${laudo.aprovados}/${laudo.total} itens conformes</div><div style="margin-bottom:10px;"><div style="background:#0a246a; color:white; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">📝 ANÁLISE TÉCNICA</div><div style="border:1px solid #e2e8f0; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.analise || 'Não informado'}</div></div><div style="margin-bottom:10px;"><div style="background:#0a246a; color:white; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">🏛 PARECER TÉCNICO</div><div style="border:1px solid #e2e8f0; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.parecer || 'Não informado'}</div></div>${laudo.recomendacoes ? `<div style="margin-bottom:10px;"><div style="background:#f0b429; color:#0a246a; padding:6px 12px; font-size:8pt; font-weight:700; border-radius:4px 4px 0 0;">💡 RECOMENDAÇÕES</div><div style="border:1px solid #f0b429; padding:10px 12px; border-radius:0 0 4px 4px; font-size:9.5pt;">${laudo.recomendacoes}</div></div>` : ''}<div style="display:flex; justify-content:space-around; text-align:center; margin-top:28px; font-size:8.5pt; color:#666;"><div><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Responsável Técnico</div></div><div><div style="border-top:1.5px solid #0a246a; padding-top:6px; width:160px;">Cliente</div></div></div><div style="text-align:center; font-size:7pt; color:#aaa; border-top:1px dashed #ddd; padding-top:10px; margin-top:16px;">ONS Odontotécnica — Laudo Técnico — Documento eletrônico gerado em ${laudo.data}</div></div></div>`; }
+function laudoGerarHTMLImpressao(laudo) { return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Laudo ${laudo.numero}</title><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;padding:16px;background:white;} @media print{body{padding:0;}}</style></head><body>${laudoGerarHTML(laudo)}</body></html>`; }
+function laudoGerarVisualizar() { if (!laudoValidar()) return; const laudo = laudoObterDados(); const preview = document.getElementById('preview-laudo'); const previewConteudo = document.getElementById('laudo-documento-preview'); if (previewConteudo) previewConteudo.innerHTML = laudoGerarHTML(laudo); if (preview) { preview.style.display = 'block'; preview.scrollIntoView({ behavior: 'smooth' }); } }
+function laudoImprimir() { if (!laudoValidar()) return; const laudo = laudoObterDados(); const w = window.open('', '_blank'); w.document.write(laudoGerarHTMLImpressao(laudo)); w.document.close(); setTimeout(() => w.print(), 800); }
+function laudoBaixarPDF() { if (!laudoValidar()) return; mostrarNotificacao('Gerando PDF...', 'info'); const laudo = laudoObterDados(); const tmp = document.createElement('div'); tmp.innerHTML = laudoGerarHTML(laudo); tmp.style.cssText = 'position:absolute; left:-9999px; font-family:Inter,sans-serif;'; document.body.appendChild(tmp); html2pdf().set({ margin: 5, filename: `Laudo_${laudo.numero}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(tmp.firstElementChild).save().then(() => { document.body.removeChild(tmp); mostrarNotificacao('PDF baixado!'); }); }
+function laudoEnviarWhatsApp() { const tel = document.getElementById('laudo-cliente-telefone').value.replace(/\D/g, ''); const nome = document.getElementById('laudo-cliente-nome').value; const num = document.getElementById('laudo-numero').value; if (!tel) { mostrarNotificacao('Informe o telefone!', 'erro'); return; } window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(`*ONS ODONTOTÉCNICA*\n\nOlá ${nome}, seu laudo técnico *${num}* foi gerado!\n\n📞 (35) 9 2000-4813`)}`, '_blank'); }
+function laudoSalvar() { if (!laudoValidar()) return; const laudo = laudoObterDados(); laudosSalvos.unshift(laudo); localStorage.setItem('ons_laudos_template', JSON.stringify(laudosSalvos)); mostrarNotificacao(`Laudo ${laudo.numero} salvo!`); laudoLimpar(); laudoAtualizarDash(); laudoRenderHist(); }
+function laudoLimpar() { ['laudo-cliente-nome', 'laudo-cliente-telefone', 'laudo-cliente-email', 'laudo-cliente-documento', 'laudo-cliente-endereco', 'laudo-fabricante', 'laudo-modelo', 'laudo-serie', 'laudo-ano', 'laudo-analise', 'laudo-parecer', 'laudo-recomendacoes'].forEach(id => { const e = document.getElementById(id); if (e) e.value = ''; }); const selectCliente = document.getElementById('laudo-select-cliente'); if (selectCliente) selectCliente.value = ''; const selectEquip = document.getElementById('laudo-tipo-equipamento'); if (selectEquip) selectEquip.value = ''; const equipGroup = document.getElementById('laudo-equip-cliente-group'); if (equipGroup) equipGroup.style.display = 'none'; const checklistDiv = document.getElementById('laudo-checklist-dinamico'); if (checklistDiv) checklistDiv.innerHTML = '<p style="text-align:center; color:var(--cinza-texto); padding:16px 0;">Selecione um tipo de equipamento acima para carregar o checklist</p>'; const preview = document.getElementById('preview-laudo'); if (preview) preview.style.display = 'none'; const pendenteRadio = document.querySelector('input[name="laudo-status"][value="PENDENTE"]'); if (pendenteRadio) pendenteRadio.checked = true; const numInput = document.getElementById('laudo-numero'); const dataInput = document.getElementById('laudo-data'); if (numInput) numInput.value = laudoGerarNumero(); if (dataInput) dataInput.value = new Date().toLocaleDateString('pt-BR'); }
+function laudoRenderHist(lista) { const arr = lista || laudosSalvos; const c = document.getElementById('laudo-lista-hist'); if (!c) return; if (arr.length === 0) { c.innerHTML = '<div class="lista-item"><p>Nenhum laudo registrado</p></div>'; return; } const badgeMap = { APROVADO: 'badge-aprovado', APROVADO_COM_RESSALVAS: 'badge-ressalvas', REPROVADO: 'badge-reprovado', PENDENTE: 'badge-pendente' }; const txtMap = { APROVADO: '✅ Aprovado', APROVADO_COM_RESSALVAS: '⚠️ Com Ressalvas', REPROVADO: '❌ Reprovado', PENDENTE: '⏳ Pendente' }; c.innerHTML = arr.map(l => `<div class="laudo-hist-item" onclick="laudoVerDetalhes(${l.id})"><div class="laudo-hist-info"><h4>${l.numero} — ${l.cliente.nome}</h4><p>${l.equipamento.tipo} &nbsp;|&nbsp; ${l.data}</p></div><span class="badge ${badgeMap[l.status] || 'badge-pendente'}">${txtMap[l.status] || 'Pendente'}</span></div>`).join(''); }
+function laudoFiltrar() { const t = document.getElementById('laudo-busca').value.toLowerCase(); const filtrados = laudosSalvos.filter(l => l.numero.toLowerCase().includes(t) || l.cliente.nome.toLowerCase().includes(t) || (l.equipamento.tipo || '').toLowerCase().includes(t)); laudoRenderHist(filtrados); }
+function laudoVerDetalhes(id) { const l = laudosSalvos.find(x => x.id === id); laudoIdAtual = id; const txtMap = { APROVADO: '✅ Aprovado', APROVADO_COM_RESSALVAS: '⚠️ Aprovado com Ressalvas', REPROVADO: '❌ Reprovado', PENDENTE: '⏳ Pendente' }; const modalBody = document.getElementById('laudo-modal-body'); if (modalBody) { modalBody.innerHTML = `<div style="margin-bottom:12px;">${laudoGerarHTML(l)}</div><div style="padding:12px; background:var(--cinza-bg); border-radius:var(--radius); font-size:0.8rem;"><strong>Checklist:</strong> ${l.aprovados}/${l.total} itens conformes &nbsp;|&nbsp;<strong>Status:</strong> ${txtMap[l.status] || 'Pendente'}</div>`; } document.getElementById('modalLaudo').classList.add('active'); }
+function laudoReimprimir() { const l = laudosSalvos.find(x => x.id === laudoIdAtual); if (!l) return; const w = window.open('', '_blank'); w.document.write(laudoGerarHTMLImpressao(l)); w.document.close(); setTimeout(() => w.print(), 800); }
+function laudoBaixarPDFSalvo() { const l = laudosSalvos.find(x => x.id === laudoIdAtual); if (!l) return; mostrarNotificacao('Gerando PDF...', 'info'); const tmp = document.createElement('div'); tmp.innerHTML = laudoGerarHTML(l); tmp.style.cssText = 'position:absolute; left:-9999px;'; document.body.appendChild(tmp); html2pdf().set({ margin: 5, filename: `Laudo_${l.numero}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(tmp.firstElementChild).save().then(() => { document.body.removeChild(tmp); mostrarNotificacao('PDF baixado!'); }); }
+function laudoWhatsAppSalvo() { const l = laudosSalvos.find(x => x.id === laudoIdAtual); if (!l) return; const tel = l.cliente.telefone.replace(/\D/g, ''); if (!tel) { mostrarNotificacao('Telefone não encontrado!', 'erro'); return; } window.open(`https://wa.me/55${tel}?text=${encodeURIComponent(`*ONS ODONTOTÉCNICA*\n\nOlá ${l.cliente.nome}, seu laudo técnico *${l.numero}* está disponível!\n\n📞 (35) 9 2000-4813`)}`, '_blank'); }
+function laudoExcluirAtual() { if (!confirm('Excluir este laudo?')) return; laudosSalvos = laudosSalvos.filter(l => l.id !== laudoIdAtual); localStorage.setItem('ons_laudos_template', JSON.stringify(laudosSalvos)); document.getElementById('modalLaudo').classList.remove('active'); laudoIdAtual = null; mostrarNotificacao('Laudo excluído!'); laudoRenderHist(); laudoAtualizarDash(); }
+function laudoAtualizarDash() { const cards = document.getElementById('laudo-dash-cards'); const stats = document.getElementById('laudo-dash-stats'); if (!cards) return; const ap = laudosSalvos.filter(l => l.status === 'APROVADO').length; const ar = laudosSalvos.filter(l => l.status === 'APROVADO_COM_RESSALVAS').length; const rp = laudosSalvos.filter(l => l.status === 'REPROVADO').length; const pd = laudosSalvos.filter(l => l.status === 'PENDENTE').length; const equips = new Set(laudosSalvos.map(l => l.equipamento.tipo)); const clis = new Set(laudosSalvos.map(l => l.cliente.nome)); cards.innerHTML = `<div class="card"><div class="card-icon"><i class="fas fa-file-alt"></i></div><h3>${laudosSalvos.length}</h3><p>Total Laudos</p></div><div class="card"><div class="card-icon green"><i class="fas fa-check-circle"></i></div><h3>${ap}</h3><p>Aprovados</p></div><div class="card"><div class="card-icon gold"><i class="fas fa-exclamation-triangle"></i></div><h3>${ar}</h3><p>C/ Ressalvas</p></div><div class="card"><div class="card-icon red"><i class="fas fa-times-circle"></i></div><h3>${rp}</h3><p>Reprovados</p></div><div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>${pd}</h3><p>Pendentes</p></div><div class="card"><div class="card-icon"><i class="fas fa-microscope"></i></div><h3>${equips.size}</h3><p>Tipos Equip.</p></div><div class="card"><div class="card-icon"><i class="fas fa-users"></i></div><h3>${clis.size}</h3><p>Clientes</p></div>`; if (stats) { const total = laudosSalvos.length || 1; if (laudosSalvos.length === 0) { stats.innerHTML = '<p style="color:var(--cinza-texto); font-size:0.8rem;">Nenhum laudo registrado ainda.</p>'; } else { stats.innerHTML = `<div class="lista">${[['APROVADO', '✅ Aprovados', ap, 'badge-aprovado'], ['APROVADO_COM_RESSALVAS', '⚠️ Aprovados c/ Ressalvas', ar, 'badge-ressalvas'], ['REPROVADO', '❌ Reprovados', rp, 'badge-reprovado'], ['PENDENTE', '⏳ Pendentes', pd, 'badge-pendente']].map(([_, txt, n, cls]) => `<div class="lista-item"><span>${txt}</span><div style="display:flex; align-items:center; gap:12px;"><span class="badge ${cls}">${n}</span><span style="font-size:0.72rem; color:var(--cinza-texto);">${((n / total) * 100).toFixed(0)}%</span></div></div>`).join('')}</div>`; } } }
+function laudoMostrarAba(aba) { document.querySelectorAll('.laudo-aba').forEach(a => a.style.display = 'none'); const abaDiv = document.getElementById(aba); if (abaDiv) abaDiv.style.display = 'block'; const mapBtn = { 'laudo-novo': 'laudo-btn-novo', 'laudo-hist': 'laudo-btn-hist', 'laudo-gerenciar': 'laudo-btn-gerenciar', 'laudo-config': 'laudo-btn-config', 'laudo-dash': 'laudo-btn-dash' }; Object.values(mapBtn).forEach(b => { const el = document.getElementById(b); if (el) el.className = 'btn btn-outline'; }); const activeBtn = mapBtn[aba]; if (activeBtn) { const el = document.getElementById(activeBtn); if (el) el.className = 'btn btn-primary'; } if (aba === 'laudo-hist') laudoRenderHist(); if (aba === 'laudo-dash') laudoAtualizarDash(); if (aba === 'laudo-novo') laudoInicializar(); }
 
 // ===== GERENCIAR CHECKLISTS =====
-function laudoCarregarEditor() {
-    const tipo = document.getElementById('laudo-template-equip').value;
-    laudoTemplateAtual = tipo;
-    if (!tipo) {
-        laudoLimparEditor();
-        return;
-    }
-    const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo];
-    if (data) {
-        document.getElementById('laudo-template-itens').value = data.checklist.join('\n');
-        document.getElementById('laudo-template-analise').value = data.analise || '';
-        document.getElementById('laudo-template-parecer').value = data.parecer || '';
-    } else {
-        laudoLimparEditor();
-    }
-}
-
-function laudoLimparEditor() {
-    const itensInput = document.getElementById('laudo-template-itens');
-    const analiseInput = document.getElementById('laudo-template-analise');
-    const parecerInput = document.getElementById('laudo-template-parecer');
-    if (itensInput) itensInput.value = '';
-    if (analiseInput) analiseInput.value = '';
-    if (parecerInput) parecerInput.value = '';
-}
-
-function laudoSalvarTemplate() {
-    const tipo = laudoTemplateAtual;
-    if (!tipo) {
-        mostrarNotificacao('Selecione um equipamento!', 'erro');
-        return;
-    }
-    const itens = document.getElementById('laudo-template-itens').value.split('\n').filter(l => l.trim());
-    if (!itens.length) {
-        mostrarNotificacao('Adicione pelo menos um item!', 'erro');
-        return;
-    }
-    laudosCustom[tipo] = {
-        nome: laudoChecklistsPadrao[tipo]?.nome || tipo,
-        checklist: itens,
-        analise: document.getElementById('laudo-template-analise').value,
-        parecer: document.getElementById('laudo-template-parecer').value
-    };
-    localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom));
-    mostrarNotificacao('Checklist salvo!');
-    if (document.getElementById('laudo-tipo-equipamento').value === tipo) laudoCarregarChecklist();
-}
-
-function laudoRestaurarPadrao() {
-    const tipo = laudoTemplateAtual;
-    if (!tipo) {
-        mostrarNotificacao('Selecione um equipamento!', 'erro');
-        return;
-    }
-    if (!confirm('Restaurar checklist padrão? As personalizações serão perdidas.')) return;
-    delete laudosCustom[tipo];
-    localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom));
-    mostrarNotificacao('Checklist restaurado!');
-    laudoCarregarEditor();
-    if (document.getElementById('laudo-tipo-equipamento').value === tipo) laudoCarregarChecklist();
-}
+function laudoCarregarEditor() { const tipo = document.getElementById('laudo-template-equip').value; laudoTemplateAtual = tipo; if (!tipo) { laudoLimparEditor(); return; } const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo]; if (data) { document.getElementById('laudo-template-itens').value = data.checklist.join('\n'); document.getElementById('laudo-template-analise').value = data.analise || ''; document.getElementById('laudo-template-parecer').value = data.parecer || ''; } else { laudoLimparEditor(); } }
+function laudoLimparEditor() { const itensInput = document.getElementById('laudo-template-itens'); const analiseInput = document.getElementById('laudo-template-analise'); const parecerInput = document.getElementById('laudo-template-parecer'); if (itensInput) itensInput.value = ''; if (analiseInput) analiseInput.value = ''; if (parecerInput) parecerInput.value = ''; }
+function laudoSalvarTemplate() { const tipo = laudoTemplateAtual; if (!tipo) { mostrarNotificacao('Selecione um equipamento!', 'erro'); return; } const itens = document.getElementById('laudo-template-itens').value.split('\n').filter(l => l.trim()); if (!itens.length) { mostrarNotificacao('Adicione pelo menos um item!', 'erro'); return; } laudosCustom[tipo] = { nome: laudoChecklistsPadrao[tipo]?.nome || tipo, checklist: itens, analise: document.getElementById('laudo-template-analise').value, parecer: document.getElementById('laudo-template-parecer').value }; localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom)); mostrarNotificacao('Checklist salvo!'); if (document.getElementById('laudo-tipo-equipamento').value === tipo) laudoCarregarChecklist(); }
+function laudoRestaurarPadrao() { const tipo = laudoTemplateAtual; if (!tipo) { mostrarNotificacao('Selecione um equipamento!', 'erro'); return; } if (!confirm('Restaurar checklist padrão? As personalizações serão perdidas.')) return; delete laudosCustom[tipo]; localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom)); mostrarNotificacao('Checklist restaurado!'); laudoCarregarEditor(); if (document.getElementById('laudo-tipo-equipamento').value === tipo) laudoCarregarChecklist(); }
 
 // ===== CONFIGURAÇÕES DE LAUDOS =====
-function laudoConfigCarregar() {
-    const tipo = document.getElementById('laudo-config-equip').value;
-    const formDiv = document.getElementById('laudo-config-form');
-    if (!tipo) {
-        if (formDiv) formDiv.style.display = 'none';
-        return;
-    }
-    if (formDiv) formDiv.style.display = 'block';
-    
-    const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo];
-    if (data) {
-        const itensInput = document.getElementById('laudo-config-itens');
-        const analiseInput = document.getElementById('laudo-config-analise');
-        const parecerInput = document.getElementById('laudo-config-parecer');
-        if (itensInput) itensInput.value = data.checklist.join('\n');
-        if (analiseInput) analiseInput.value = data.analise || '';
-        if (parecerInput) parecerInput.value = data.parecer || '';
-        
-        const previewDiv = document.getElementById('laudo-config-preview');
-        if (previewDiv) previewDiv.innerHTML = laudoRenderizarChecklist(data.checklist);
-    }
-}
-
-function laudoConfigSalvar() {
-    const tipo = document.getElementById('laudo-config-equip').value;
-    if (!tipo) {
-        mostrarNotificacao('Selecione um equipamento!', 'erro');
-        return;
-    }
-    const itens = document.getElementById('laudo-config-itens').value.split('\n').filter(l => l.trim());
-    if (!itens.length) {
-        mostrarNotificacao('Adicione pelo menos um item!', 'erro');
-        return;
-    }
-    laudosCustom[tipo] = {
-        nome: laudoChecklistsPadrao[tipo]?.nome || tipo,
-        checklist: itens,
-        analise: document.getElementById('laudo-config-analise').value,
-        parecer: document.getElementById('laudo-config-parecer').value
-    };
-    localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom));
-    mostrarNotificacao('Template salvo com sucesso!');
-    laudoConfigCarregar();
-}
-
-function laudoConfigLimpar() {
-    const itensInput = document.getElementById('laudo-config-itens');
-    const analiseInput = document.getElementById('laudo-config-analise');
-    const parecerInput = document.getElementById('laudo-config-parecer');
-    if (itensInput) itensInput.value = '';
-    if (analiseInput) analiseInput.value = '';
-    if (parecerInput) parecerInput.value = '';
-    const previewDiv = document.getElementById('laudo-config-preview');
-    if (previewDiv) previewDiv.innerHTML = '';
-    mostrarNotificacao('Editor limpo!', 'info');
-}
-
-function laudoConfigRestaurar() {
-    const tipo = document.getElementById('laudo-config-equip').value;
-    if (!tipo) {
-        mostrarNotificacao('Selecione um equipamento!', 'erro');
-        return;
-    }
-    if (!confirm('Restaurar template padrão? As personalizações serão perdidas.')) return;
-    delete laudosCustom[tipo];
-    localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom));
-    mostrarNotificacao('Template restaurado para o padrão!');
-    laudoConfigCarregar();
-}
+function laudoConfigCarregar() { const tipo = document.getElementById('laudo-config-equip').value; const formDiv = document.getElementById('laudo-config-form'); if (!tipo) { if (formDiv) formDiv.style.display = 'none'; return; } if (formDiv) formDiv.style.display = 'block'; const data = laudosCustom[tipo] || laudoChecklistsPadrao[tipo]; if (data) { const itensInput = document.getElementById('laudo-config-itens'); const analiseInput = document.getElementById('laudo-config-analise'); const parecerInput = document.getElementById('laudo-config-parecer'); if (itensInput) itensInput.value = data.checklist.join('\n'); if (analiseInput) analiseInput.value = data.analise || ''; if (parecerInput) parecerInput.value = data.parecer || ''; const previewDiv = document.getElementById('laudo-config-preview'); if (previewDiv) previewDiv.innerHTML = laudoRenderizarChecklist(data.checklist); } }
+function laudoConfigSalvar() { const tipo = document.getElementById('laudo-config-equip').value; if (!tipo) { mostrarNotificacao('Selecione um equipamento!', 'erro'); return; } const itens = document.getElementById('laudo-config-itens').value.split('\n').filter(l => l.trim()); if (!itens.length) { mostrarNotificacao('Adicione pelo menos um item!', 'erro'); return; } laudosCustom[tipo] = { nome: laudoChecklistsPadrao[tipo]?.nome || tipo, checklist: itens, analise: document.getElementById('laudo-config-analise').value, parecer: document.getElementById('laudo-config-parecer').value }; localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom)); mostrarNotificacao('Template salvo com sucesso!'); laudoConfigCarregar(); }
+function laudoConfigLimpar() { const itensInput = document.getElementById('laudo-config-itens'); const analiseInput = document.getElementById('laudo-config-analise'); const parecerInput = document.getElementById('laudo-config-parecer'); if (itensInput) itensInput.value = ''; if (analiseInput) analiseInput.value = ''; if (parecerInput) parecerInput.value = ''; const previewDiv = document.getElementById('laudo-config-preview'); if (previewDiv) previewDiv.innerHTML = ''; mostrarNotificacao('Editor limpo!', 'info'); }
+function laudoConfigRestaurar() { const tipo = document.getElementById('laudo-config-equip').value; if (!tipo) { mostrarNotificacao('Selecione um equipamento!', 'erro'); return; } if (!confirm('Restaurar template padrão? As personalizações serão perdidas.')) return; delete laudosCustom[tipo]; localStorage.setItem('ons_checklists_custom', JSON.stringify(laudosCustom)); mostrarNotificacao('Template restaurado para o padrão!'); laudoConfigCarregar(); }
 
 // ==================== INIT ====================
 carregarDadosLocais();
@@ -3181,10 +1945,14 @@ orcAtualizarTotais();
 laudoInicializar();
 laudoRenderHist();
 laudoAtualizarDash();
-
-// Inicializar toggle PIX
 togglePixCampo();
+
+// Registrar Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(reg => console.log('Service Worker registrado:', reg)).catch(err => console.log('Erro SW:', err));
+    });
+}
 </script>
 </body>
 </html>
-
