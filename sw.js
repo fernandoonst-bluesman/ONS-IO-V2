@@ -1,22 +1,22 @@
 /* ============================================================
-   ONS OdontoTécnica — Service Worker v3
-   GitHub Pages: caminhos relativos, sem prefixo fixo
+   ONS OdontoTécnica — Service Worker v4
+   GitHub Pages: https://fernandoonst-bluesman.github.io/ONS-IO-V2/
    ============================================================ */
 
-const CACHE_VERSION = 'ons-v3';
+const CACHE_VERSION = 'ons-v4';
 const CACHE_STATIC  = `${CACHE_VERSION}-static`;
 const CACHE_CDN     = `${CACHE_VERSION}-cdn`;
+const BASE          = '/ONS-IO-V2';
 
-/* Arquivos locais do app — caminhos relativos ao SW */
 const LOCAL_FILES = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icons/icon-192x192.png',
-  './icons/icon-512x512.png'
+  `${BASE}/`,
+  `${BASE}/index.html`,
+  `${BASE}/manifest.json`,
+  `${BASE}/sw.js`,
+  `${BASE}/icons/icon-192x192.png`,
+  `${BASE}/icons/icon-512x512.png`
 ];
 
-/* CDN externos — cacheados separadamente */
 const CDN_FILES = [
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap',
@@ -26,99 +26,88 @@ const CDN_FILES = [
 
 /* ---- INSTALL ---- */
 self.addEventListener('install', event => {
-  console.log('[SW] Install:', CACHE_VERSION);
+  console.log('[SW] Instalando:', CACHE_VERSION);
   event.waitUntil(
     Promise.all([
-      caches.open(CACHE_STATIC).then(cache => {
-        return Promise.allSettled(
-          LOCAL_FILES.map(url =>
-            cache.add(url).catch(err => console.warn('[SW] Não cacheou local:', url, err))
-          )
-        );
-      }),
-      caches.open(CACHE_CDN).then(cache => {
-        return Promise.allSettled(
-          CDN_FILES.map(url =>
-            cache.add(url).catch(err => console.warn('[SW] Não cacheou CDN:', url, err))
-          )
-        );
-      })
-    ]).then(() => self.skipWaiting())
+      caches.open(CACHE_STATIC).then(cache =>
+        Promise.allSettled(LOCAL_FILES.map(url =>
+          cache.add(url).catch(e => console.warn('[SW] local falhou:', url, e))
+        ))
+      ),
+      caches.open(CACHE_CDN).then(cache =>
+        Promise.allSettled(CDN_FILES.map(url =>
+          cache.add(url).catch(e => console.warn('[SW] CDN falhou:', url, e))
+        ))
+      )
+    ]).then(() => {
+      console.log('[SW] Cache completo. Ativando...');
+      return self.skipWaiting();
+    })
   );
 });
 
 /* ---- ACTIVATE ---- */
 self.addEventListener('activate', event => {
-  console.log('[SW] Activate:', CACHE_VERSION);
+  console.log('[SW] Ativando:', CACHE_VERSION);
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys
-          .filter(k => k !== CACHE_STATIC && k !== CACHE_CDN)
-          .map(k => {
-            console.log('[SW] Deletando cache antigo:', k);
-            return caches.delete(k);
-          })
-      )
-    ).then(() => self.clients.claim())
+    caches.keys()
+      .then(keys => Promise.all(
+        keys.filter(k => k !== CACHE_STATIC && k !== CACHE_CDN)
+            .map(k => { console.log('[SW] Removendo cache antigo:', k); return caches.delete(k); })
+      ))
+      .then(() => self.clients.claim())
   );
 });
 
-/* ---- FETCH — Estratégia híbrida ---- */
+/* ---- FETCH ---- */
 self.addEventListener('fetch', event => {
   const url = event.request.url;
 
-  /* Supabase: sempre network-first (dados em tempo real) */
+  // Supabase → sempre rede (dados em tempo real)
   if (url.includes('supabase.co')) {
     event.respondWith(
-      fetch(event.request)
-        .catch(() => new Response(JSON.stringify({ error: 'offline' }), {
+      fetch(event.request).catch(() =>
+        new Response(JSON.stringify({ error: 'offline' }), {
           headers: { 'Content-Type': 'application/json' }
-        }))
+        })
+      )
     );
     return;
   }
 
-  /* Fontes Google / CDN: cache-first */
+  // Google Fonts / CDN → cache-first
   if (url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com') ||
       url.includes('cdnjs.cloudflare.com') || url.includes('cdn.jsdelivr.net')) {
     event.respondWith(
       caches.match(event.request).then(cached => {
         if (cached) return cached;
-        return fetch(event.request).then(response => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
+        return fetch(event.request).then(res => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
             caches.open(CACHE_CDN).then(c => c.put(event.request, clone));
           }
-          return response;
-        }).catch(() => cached || new Response('', { status: 503 }));
+          return res;
+        }).catch(() => new Response('', { status: 503 }));
       })
     );
     return;
   }
 
-  /* Arquivos locais: stale-while-revalidate */
+  // Arquivos locais → stale-while-revalidate
   event.respondWith(
     caches.match(event.request).then(cached => {
-      const fetchPromise = fetch(event.request).then(response => {
-        if (response && response.status === 200 && event.request.method === 'GET') {
-          const clone = response.clone();
-          caches.open(CACHE_STATIC).then(c => c.put(event.request, clone));
+      const network = fetch(event.request).then(res => {
+        if (res && res.status === 200 && event.request.method === 'GET') {
+          caches.open(CACHE_STATIC).then(c => c.put(event.request, res.clone()));
         }
-        return response;
+        return res;
       }).catch(() => null);
-
-      return cached || fetchPromise || new Response('Offline', { status: 503 });
+      return cached || network || new Response('Offline', { status: 503 });
     })
   );
 });
 
 /* ---- MENSAGENS ---- */
 self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-  if (event.data && event.data.type === 'GET_VERSION') {
-    event.ports[0].postMessage({ version: CACHE_VERSION });
-  }
+  if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
 });

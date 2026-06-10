@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
 
     <!-- ===== PWA META TAGS ===== -->
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="/ONS-IO-V2/manifest.json">
     <meta name="theme-color" content="#0a246a">
 
     <!-- iOS PWA -->
@@ -21,11 +21,11 @@
     <meta name="description" content="Sistema de gestão para manutenção de equipamentos odontológicos">
     <meta name="application-name" content="ONS OdontoTécnica">
 
-    <!-- ===== ÍCONES — apenas os 2 disponíveis ===== -->
-    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512x512.png">
-    <link rel="shortcut icon" href="./icons/icon-192x192.png">
+    <!-- ===== ÍCONES ===== -->
+    <link rel="apple-touch-icon" href="/ONS-IO-V2/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/ONS-IO-V2/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/ONS-IO-V2/icons/icon-512x512.png">
+    <link rel="shortcut icon" href="/ONS-IO-V2/icons/icon-192x192.png">
 
     <title>ONS OdontoTécnica — Sistema de Gestão</title>
 
@@ -2014,7 +2014,7 @@ togglePixCampo();
 // ==================== PWA - SERVICE WORKER ====================
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js', { scope: './' })
+        navigator.serviceWorker.register('/ONS-IO-V2/sw.js', { scope: '/ONS-IO-V2/' })
             .then(reg => {
                 console.log('[PWA] SW registrado. Escopo:', reg.scope);
                 // Checar atualizações a cada 60s

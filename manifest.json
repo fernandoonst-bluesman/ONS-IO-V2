@@ -2,8 +2,8 @@
   "name": "ONS OdontoTécnica",
   "short_name": "ONS Odonto",
   "description": "Sistema de gestão técnica para manutenção de equipamentos odontológicos",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/ONS-IO-V2/",
+  "scope": "/ONS-IO-V2/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#0a246a",
@@ -11,12 +11,12 @@
   "lang": "pt-BR",
   "icons": [
     {
-      "src": "icons/icon-192x192.png",
+      "src": "/ONS-IO-V2/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/icon-512x512.png",
+      "src": "/ONS-IO-V2/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -26,14 +26,24 @@
     {
       "name": "Nova OS",
       "short_name": "Nova OS",
-      "url": "./#novaos",
-      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+      "url": "/ONS-IO-V2/#novaos",
+      "icons": [
+        {
+          "src": "/ONS-IO-V2/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Clientes",
       "short_name": "Clientes",
-      "url": "./#clientes",
-      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+      "url": "/ONS-IO-V2/#clientes",
+      "icons": [
+        {
+          "src": "/ONS-IO-V2/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
